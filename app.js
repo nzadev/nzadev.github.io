@@ -1,271 +1,144 @@
-const ARCADE_DATA = [
+const APPS_LIST = [
   {
     id: 'cyber-colony',
     title: 'Protocol Zero',
-    subtitle: 'Cyberpunk Defense & Survival Game',
+    subtitle: 'Cyberpunk Defense Game',
     category: 'game',
-    categoryLabel: 'Arcade Survival',
-    tagIcon: '🎮',
-    description: 'Game aksi bertahan hidup futuristik dengan canvas rendering berkecepatan tinggi, efek audio dinamis, dan sistem update changelog langsung.',
+    categoryName: 'Game',
+    accent: '#06b6d4',
+    artBg: 'linear-gradient(135deg, #091d29 0%, #040e14 100%)',
+    specBadge: 'HTML5 Canvas',
+    description: 'Game aksi bertahan hidup futuristik dengan canvas rendering berkecepatan tinggi, efek audio dinamis, dan prototype APK download.',
     liveUrl: 'https://nzadev.github.io/cyber-colony/',
     repoUrl: 'https://github.com/nzadev/cyber-colony',
-    accent: '#00f0ff',
-    glow: 'rgba(0, 240, 255, 0.35)',
-    cardBg: '#080d19',
-    screenBg: 'linear-gradient(135deg, #071524 0%, #02070e 100%)',
-    screenText: '> PROTOCOL_ZERO // CANVAS RUNNER\n[STATUS: INVASION ACTIVE] 04:22\nDEFENSE GRID: 100% ONLINE',
-    tech: ['HTML5 Canvas', 'Web Audio API', 'Cyberpunk HUD', 'JS Native'],
-    features: [
-      'Canvas Action Gameplay Langsung di Browser',
-      'Atmospheric Cyber Audio & SFX Dinamis',
-      'Prototype APK Android Siap Unduh',
-      'Live Changelog & Update Feed Terintegrasi'
-    ]
+    tech: ['HTML5 Canvas', 'Web Audio', 'Android Prototype', 'JS Native'],
+    iconSvg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/><circle cx="12" cy="12" r="3"/></svg>`
   },
   {
     id: 'airpad',
     title: 'AirPad Controller',
     subtitle: 'Virtual Gamepad via WebSocket',
     category: 'game',
-    categoryLabel: 'Hardware Bridge',
-    tagIcon: '🕹️',
-    description: 'Mengubah smartphone menjadi controller PC nirkabel ultra-low latency. Dilengkapi QR Code camera pairing, D-Pad, Dual Analog Stick, dan Red Turbo mode.',
+    categoryName: 'Game & Tool',
+    accent: '#f43f5e',
+    artBg: 'linear-gradient(135deg, #260a13 0%, #100408 100%)',
+    specBadge: 'WebSocket Bridge',
+    description: 'Mengubah smartphone menjadi gamepad PC nirkabel via WebSocket dengan QR Scanner, D-Pad, Dual Analog Stick, dan Red Mode.',
     liveUrl: 'https://nzadev.github.io/airpad/',
     repoUrl: 'https://github.com/nzadev/airpad',
-    accent: '#ff2a5f',
-    glow: 'rgba(255, 42, 95, 0.35)',
-    cardBg: '#13090e',
-    screenBg: 'linear-gradient(135deg, #240810 0%, #0b0204 100%)',
-    screenText: '[BRIDGE: 192.168.1.100:8765]\nLATENCY: 1.4ms // D-PAD: DUAL ANALOG\nTURBO RED: PERSISTENT ON',
-    tech: ['WebSocket', 'Virtual Gamepad', 'Haptic Touch', 'PWA Ready'],
-    features: [
-      'Pairing Seketika via Kamera QR Scanner',
-      'Dual Analog Stick & Turbo Buttons Responsif',
-      'Haptic Touch Vibration Feedback',
-      'Red Turbo Mode State Persistence'
-    ]
+    tech: ['WebSocket', 'Haptic Touch', 'QR Scanner', 'Gamepad API'],
+    iconSvg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="10" r="1"/><circle cx="18" cy="12" r="1"/><circle cx="16" cy="14" r="1"/><circle cx="14" cy="12" r="1"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/></svg>`
   },
   {
     id: 'nexus-pos',
     title: 'NexusPOS',
-    subtitle: 'Sistem Kasir Modern Retail & F&B',
+    subtitle: 'Kasir Retail & Cafe F&B',
     category: 'business',
-    categoryLabel: 'Smart POS & Cafe',
-    tagIcon: '💼',
-    description: 'Aplikasi Point of Sale (POS) cepat berbasis native web. Manajemen katalog produk ritel & cafe, custom order modifier (ice, sugar, size), dan cetak struk thermal.',
+    categoryName: 'Kasir POS',
+    accent: '#10b981',
+    artBg: 'linear-gradient(135deg, #092016 0%, #030e0a 100%)',
+    specBadge: 'Thermal Print',
+    description: 'Sistem Point of Sale modern untuk ritel dan cafe. Mendukung custom modifier pesanan (ice, sugar, size) dan cetak struk thermal.',
     liveUrl: 'https://nzadev.github.io/nexus-pos/',
     repoUrl: 'https://github.com/nzadev/nexus-pos',
-    accent: '#10b981',
-    glow: 'rgba(16, 185, 129, 0.35)',
-    cardBg: '#071510',
-    screenBg: 'linear-gradient(135deg, #092015 0%, #030d08 100%)',
-    screenText: 'NEXUS CAFE // ORDER #1042\n1x Iced Latte [Normal Ice/Less Sugar]\nTOTAL: Rp 32.000 [STRUK TERCETAK]',
-    tech: ['Vanilla JS', 'Thermal Printing', 'IndexedDB', 'Responsive POS'],
-    features: [
-      'Katalog Retail & Custom Minuman F&B',
-      'Custom Modifier (Ice, Sugar Level, Size)',
-      'Simulasi & Cetak Struk Thermal 58/80mm',
-      'Export Rekap Omzet & Laporan Penjualan'
-    ]
+    tech: ['Vanilla JS', 'Thermal Print', 'IndexedDB', 'PWA Ready'],
+    iconSvg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><circle cx="7" cy="8" r="1"/><circle cx="12" cy="8" r="1"/><circle cx="17" cy="8" r="1"/></svg>`
   },
   {
     id: 'netdesk-tkj',
     title: 'NetDesk TKJ',
-    subtitle: 'IT Helpdesk & Network Infrastructure Suite',
+    subtitle: 'IT Helpdesk & Network Suite',
     category: 'network',
-    categoryLabel: 'Network Lab Ops',
-    tagIcon: '🌐',
-    description: 'Dashboard manajemen infrastruktur jaringan lab TKJ dan kantor. Dilengkapi Subnet Calculator visual (CIDR/VLSM), Interactive Topology Map, dan trouble ticketing.',
+    categoryName: 'Jaringan & IT',
+    accent: '#3b82f6',
+    artBg: 'linear-gradient(135deg, #0a1830 0%, #040b17 100%)',
+    specBadge: 'CIDR / VLSM',
+    description: 'Dashboard terpadu manajemen infrastruktur lab TKJ, visual Subnet Calculator (CIDR/VLSM), peta topologi, dan tiket troubleshooting.',
     liveUrl: 'https://nzadev.github.io/netdesk-tkj/',
     repoUrl: 'https://github.com/nzadev/netdesk-tkj',
-    accent: '#38bdf8',
-    glow: 'rgba(56, 189, 248, 0.35)',
-    cardBg: '#08121f',
-    screenBg: 'linear-gradient(135deg, #0b1f33 0%, #040d17 100%)',
-    screenText: '$ ping 192.168.10.1 -c 3\n64 bytes from 192.168.10.1: time=0.9ms\n[TOPOLOGY: 8 SWITCHES ONLINE]',
-    tech: ['CIDR Subnetting', 'Interactive Topology', 'IT Ticketing', 'Local Storage'],
-    features: [
-      'Subnet Calculator IP / CIDR / VLSM Visual',
-      'Visual Network Topology Map Interaktif',
-      'Inventaris Hardware Rack & Perangkat Lab',
-      'Kanban Board Pelacakan Trouble Ticket'
-    ]
+    tech: ['CIDR Subnet', 'Topology Map', 'IT Ticketing', 'Local Storage'],
+    iconSvg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/><line x1="12" y1="10" x2="12" y2="14"/></svg>`
   },
   {
     id: 'kas-tkj1',
     title: 'KAS-TKJ1',
-    subtitle: 'Buku Kas & Monitoring Iuran XII TKJ 1',
+    subtitle: 'Buku Kas & Monitoring Iuran',
     category: 'education',
-    categoryLabel: 'Finance & Ledger',
-    tagIcon: '📊',
-    description: 'Buku kas digital transparan untuk kelas XII TKJ 1 SMK Kartika X-1. Monitoring iuran mingguan 36 siswa, kalkulasi tunggakan otomatis, dan backup data JSON.',
+    categoryName: 'Buku Kas',
+    accent: '#f59e0b',
+    artBg: 'linear-gradient(135deg, #241806 0%, #0f0a02 100%)',
+    specBadge: 'XII TKJ 1',
+    description: 'Sistem buku kas digital kelas XII TKJ 1 SMK Kartika X-1 untuk rekapitulasi iuran mingguan 36 siswa dan kalkulasi tunggakan otomatis.',
     liveUrl: 'https://nzadev.github.io/kas-tkj1/',
     repoUrl: 'https://github.com/nzadev/kas-tkj1',
-    accent: '#eab308',
-    glow: 'rgba(234, 179, 8, 0.35)',
-    cardBg: '#171407',
-    screenBg: 'linear-gradient(135deg, #241e0a 0%, #0d0a02 100%)',
-    screenText: 'SMK KARTIKA X-1 // KELAS XII TKJ 1\nSTATUS: 36 SISWA TERDATA LENGKAP\nREKAP TUNGGAKAN: OTOMATIS AKTIF',
-    tech: ['Ledger Engine', 'Student Tracker', 'Financial Charts', 'PWA Ready'],
-    features: [
-      'Rekap Pembayaran & Kehadiran 36 Siswa',
-      'Perhitungan Otomatis Tunggakan Kas',
-      'Arus Kas Masuk & Pengeluaran Terperinci',
-      'Fitur Cadangkan & Pulihkan Database JSON'
-    ]
+    tech: ['Ledger Engine', 'Student Tracker', 'Backup JSON', 'PWA Ready'],
+    iconSvg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="13" y2="11"/></svg>`
   },
   {
     id: 'pure-pdf',
     title: 'Pure PDF',
-    subtitle: 'Client-Side Privacy-First PDF Toolkit',
+    subtitle: 'Private Client-Side PDF Tools',
     category: 'utility',
-    categoryLabel: 'Client Utility',
-    tagIcon: '⚡',
-    description: 'Aplikasi manipulasi dan pembaca dokumen PDF tanpa pernah mengunggah data ke server luar. Dibangun dengan Expo React Native Web untuk privasi mutlak.',
+    categoryName: 'Utility',
+    accent: '#f97316',
+    artBg: 'linear-gradient(135deg, #241106 0%, #100702 100%)',
+    specBadge: '100% Client-Side',
+    description: 'Alat pemrosesan dan pembaca dokumen PDF yang beroperasi 100% di browser lokal tanpa pernah mengirim data ke server cloud.',
     liveUrl: 'https://nzadev.github.io/pure-pdf/',
     repoUrl: 'https://github.com/nzadev/pure-pdf',
-    accent: '#f97316',
-    glow: 'rgba(249, 115, 22, 0.35)',
-    cardBg: '#180d07',
-    screenBg: 'linear-gradient(135deg, #28150a 0%, #0d0502 100%)',
-    screenText: '[DOC: ENGINE READY]\n100% PRIVATE CLIENT-SIDE PROCESSING\nZERO SERVER UPLOAD GUARANTEE',
-    tech: ['Expo React Native', 'Web PDF Engine', 'Zero Server Upload', 'Privacy First'],
-    features: [
-      '100% Pemrosesan Dokumen di Peramban Lokal',
-      'Privasi Penuh Tanpa Unggah ke Server Cloud',
-      'Arsitektur Expo React Native Web Ringan',
-      'Antarmuka Pengguna Bersih & Fokus'
-    ]
+    tech: ['Expo Web', 'Zero Server', 'Web PDF Engine', 'Privacy First'],
+    iconSvg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`
   }
 ];
 
 const state = {
-  activeCat: 'all',
+  activeCategory: 'all',
   searchQuery: '',
   isListView: false,
-  spotlightIdx: 0,
-  sfxEnabled: localStorage.getItem('nzadev_sfx_enabled') !== 'false',
-  pinnedIds: JSON.parse(localStorage.getItem('nzadev_pinned_apps') || '[]'),
-  activeTheaterApp: null,
+  pinnedIds: JSON.parse(localStorage.getItem('nzadev_pinned') || '[]'),
+  activeApp: null,
   paletteFiltered: [],
-  paletteSelectedIdx: 0
+  paletteIndex: 0
 };
 
 const dom = {
-  arcadeGrid: document.getElementById('arcade-grid'),
-  emptyDeck: document.getElementById('empty-deck'),
-  categoryDock: document.getElementById('category-dock'),
-  deckSearchInput: document.getElementById('deck-search-input'),
-  btnClearDeckSearch: document.getElementById('btn-clear-deck-search'),
-  btnResetSearch: document.getElementById('btn-reset-search'),
-  btnModeGrid: document.getElementById('btn-mode-grid'),
-  btnModeList: document.getElementById('btn-mode-list'),
-  pinnedSection: document.getElementById('pinned-section'),
-  pinnedChipsRow: document.getElementById('pinned-chips-row'),
-  btnResetPin: document.getElementById('btn-reset-pin'),
-  marqueeTitle: document.getElementById('marquee-title'),
-  marqueeDesc: document.getElementById('marquee-desc'),
-  marqueeTagLabel: document.getElementById('marquee-tag-label'),
-  marqueeTechRow: document.getElementById('marquee-tech-row'),
-  btnPlaySpotlight: document.getElementById('btn-play-spotlight'),
-  btnNewtabSpotlight: document.getElementById('btn-newtab-spotlight'),
-  quickNavDots: document.getElementById('quick-nav-dots'),
-  marqueePreviewScreen: document.getElementById('marquee-preview-screen'),
-  marqueeSpotlight: document.getElementById('marquee-spotlight'),
-  clockDisplay: document.getElementById('clock-display'),
-  btnSoundToggle: document.getElementById('btn-sound-toggle'),
-  soundIcon: document.getElementById('sound-icon'),
-  btnSearchTrigger: document.getElementById('btn-search-trigger'),
-  spotlightModal: document.getElementById('spotlight-modal'),
-  spotlightBackdrop: document.getElementById('spotlight-backdrop'),
-  spotlightInput: document.getElementById('spotlight-input'),
-  spotlightList: document.getElementById('spotlight-list'),
-  spotlightCounter: document.getElementById('spotlight-counter'),
-  theaterModal: document.getElementById('theater-modal'),
-  theaterBackdrop: document.getElementById('theater-backdrop'),
-  theaterWindow: document.querySelector('.theater-window'),
-  theaterAppBadge: document.getElementById('theater-app-badge'),
-  theaterName: document.getElementById('theater-name'),
-  theaterUrl: document.getElementById('theater-url'),
-  theaterIframe: document.getElementById('theater-iframe'),
-  theaterLoading: document.getElementById('theater-loading'),
-  btnThReload: document.getElementById('btn-th-reload'),
-  btnThNewtab: document.getElementById('btn-th-newtab'),
-  btnThRepo: document.getElementById('btn-th-repo'),
-  btnThFullscreen: document.getElementById('btn-th-fullscreen'),
-  btnThClose: document.getElementById('btn-th-close'),
-  btnInstallApp: document.getElementById('btn-install-app')
+  appsGrid: document.getElementById('apps-grid'),
+  emptyResults: document.getElementById('empty-results'),
+  filterSegmented: document.getElementById('filter-segmented'),
+  inlineSearch: document.getElementById('inline-search'),
+  btnClearInput: document.getElementById('btn-clear-input'),
+  btnResetFilter: document.getElementById('btn-reset-filter'),
+  btnViewGrid: document.getElementById('btn-view-grid'),
+  btnViewList: document.getElementById('btn-view-list'),
+  pinnedBar: document.getElementById('pinned-bar'),
+  pinnedTags: document.getElementById('pinned-tags'),
+  btnUnpinAll: document.getElementById('btn-unpin-all'),
+  btnOpenSearch: document.getElementById('btn-open-search'),
+  searchModal: document.getElementById('search-modal'),
+  searchOverlay: document.getElementById('search-overlay'),
+  paletteSearchInput: document.getElementById('palette-search-input'),
+  paletteResults: document.getElementById('palette-results'),
+  paletteStats: document.getElementById('palette-stats'),
+  viewerModal: document.getElementById('viewer-modal'),
+  viewerOverlay: document.getElementById('viewer-overlay'),
+  viewerWindow: document.querySelector('.viewer-window'),
+  viewerTitle: document.getElementById('viewer-title'),
+  viewerAddress: document.getElementById('viewer-address'),
+  viewerIframe: document.getElementById('viewer-iframe'),
+  viewerSpinner: document.getElementById('viewer-spinner'),
+  btnVwReload: document.getElementById('btn-vw-reload'),
+  btnVwNewtab: document.getElementById('btn-vw-newtab'),
+  btnVwSource: document.getElementById('btn-vw-source'),
+  btnVwFullscreen: document.getElementById('btn-vw-fullscreen'),
+  btnVwClose: document.getElementById('btn-vw-close'),
+  dotClose: document.getElementById('dot-close'),
+  dotMax: document.getElementById('dot-max'),
+  btnInstall: document.getElementById('btn-install')
 };
 
-let audioCtx = null;
-function playSound(freq = 440, type = 'sine', duration = 0.04) {
-  if (!state.sfxEnabled) return;
-  try {
-    if (!audioCtx) {
-      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    }
-    if (audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = type;
-    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    osc.start();
-    osc.stop(audioCtx.currentTime + duration);
-  } catch (err) {}
-}
-
-function updateClock() {
-  const now = new Date();
-  const h = String(now.getHours()).padStart(2, '0');
-  const m = String(now.getMinutes()).padStart(2, '0');
-  const s = String(now.getSeconds()).padStart(2, '0');
-  dom.clockDisplay.textContent = `${h}:${m}:${s} WIB`;
-}
-
-function updateSpotlight(index) {
-  state.spotlightIdx = index % ARCADE_DATA.length;
-  const app = ARCADE_DATA[state.spotlightIdx];
-
-  dom.marqueeTitle.textContent = app.title;
-  dom.marqueeDesc.textContent = app.description;
-  dom.marqueeTagLabel.textContent = `${app.tagIcon} ${app.categoryLabel.toUpperCase()} • SPOTLIGHT`;
-  dom.marqueeSpotlight.style.setProperty('--marquee-accent', app.accent);
-
-  dom.marqueeTechRow.innerHTML = app.tech.map(t => `<span class="mq-chip">${escapeHtml(t)}</span>`).join('');
-  dom.btnNewtabSpotlight.href = app.liveUrl;
-
-  dom.marqueePreviewScreen.style.background = app.screenBg;
-  dom.marqueePreviewScreen.style.borderColor = app.accent;
-  dom.marqueePreviewScreen.innerHTML = `
-    <div style="padding: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: ${app.accent}; white-space: pre-wrap; line-height: 1.6;">${escapeHtml(app.screenText)}</div>
-  `;
-
-  renderSpotlightDots();
-}
-
-function renderSpotlightDots() {
-  dom.quickNavDots.innerHTML = '';
-  ARCADE_DATA.forEach((app, idx) => {
-    const dot = document.createElement('div');
-    dot.className = `nav-dot ${idx === state.spotlightIdx ? 'active' : ''}`;
-    dot.title = app.title;
-    dot.addEventListener('click', () => {
-      playSound(520, 'triangle', 0.03);
-      updateSpotlight(idx);
-    });
-    dom.quickNavDots.appendChild(dot);
-  });
-}
-
-function getFilteredData() {
-  return ARCADE_DATA.filter(app => {
-    const matchCat = state.activeCat === 'all' || app.category === state.activeCat;
+function getFilteredApps() {
+  return APPS_LIST.filter(app => {
+    const matchCat = state.activeCategory === 'all' || app.category === state.activeCategory;
     if (!matchCat) return false;
 
     if (!state.searchQuery.trim()) return true;
@@ -273,217 +146,197 @@ function getFilteredData() {
     return app.title.toLowerCase().includes(q) ||
            app.subtitle.toLowerCase().includes(q) ||
            app.description.toLowerCase().includes(q) ||
-           app.categoryLabel.toLowerCase().includes(q) ||
-           app.tech.some(t => t.toLowerCase().includes(q)) ||
-           app.features.some(f => f.toLowerCase().includes(q));
+           app.categoryName.toLowerCase().includes(q) ||
+           app.tech.some(t => t.toLowerCase().includes(q));
   });
 }
 
 function renderGrid() {
-  const filtered = getFilteredData();
-  dom.arcadeGrid.innerHTML = '';
+  const filtered = getFilteredApps();
+  dom.appsGrid.innerHTML = '';
 
   if (filtered.length === 0) {
-    dom.arcadeGrid.classList.add('hidden');
-    dom.emptyDeck.classList.remove('hidden');
+    dom.appsGrid.classList.add('hidden');
+    dom.emptyResults.classList.remove('hidden');
     return;
   }
 
-  dom.arcadeGrid.classList.remove('hidden');
-  dom.emptyDeck.classList.add('hidden');
+  dom.appsGrid.classList.remove('hidden');
+  dom.emptyResults.classList.add('hidden');
 
   filtered.forEach(app => {
     const isPinned = state.pinnedIds.includes(app.id);
     const card = document.createElement('article');
-    card.className = 'arcade-card';
+    card.className = 'app-card';
     card.style.setProperty('--card-accent', app.accent);
-    card.style.setProperty('--card-glow', app.glow);
-    card.style.setProperty('--card-bg', app.cardBg);
-    card.style.setProperty('--card-border', `rgba(${hexToRgb(app.accent)}, 0.3)`);
+    card.style.setProperty('--card-art-bg', app.artBg);
 
     card.innerHTML = `
-      <div class="card-mini-screen" style="background: ${app.screenBg};">
-        <div class="screen-badge-row">
-          <span class="screen-cat-tag">${app.tagIcon} ${escapeHtml(app.categoryLabel)}</span>
-          <span class="screen-status-badge">● LIVE GITHUB</span>
+      <div class="card-header-art">
+        <div class="art-badge-row">
+          <span class="art-cat-label">${escapeHtml(app.categoryName)}</span>
+          <button type="button" class="art-pin-btn ${isPinned ? 'pinned' : ''}" data-pin="${app.id}" title="${isPinned ? 'Lepas Pin' : 'Sematkan'}">
+            ★
+          </button>
         </div>
-        <div class="screen-visual-deco" style="color: ${app.accent}; white-space: pre-wrap; font-size: 0.75rem;">${escapeHtml(app.screenText)}</div>
-      </div>
-
-      <div class="card-main-header">
-        <div class="card-title-wrap">
-          <h3>${escapeHtml(app.title)}</h3>
-          <div class="card-subline">${escapeHtml(app.subtitle)}</div>
+        <div class="art-illustration">
+          <div class="art-icon-wrap">${app.iconSvg}</div>
+          <span class="art-accent-spec">${escapeHtml(app.specBadge)}</span>
         </div>
-        <button type="button" class="card-pin-toggle ${isPinned ? 'pinned' : ''}" data-pin-id="${app.id}" title="${isPinned ? 'Lepas Pin' : 'Sematkan ke Dock'}">
-          ★
-        </button>
       </div>
 
-      <p class="card-description">${escapeHtml(app.description)}</p>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h2 class="card-title">${escapeHtml(app.title)}</h2>
+          <span class="card-subtitle">${escapeHtml(app.subtitle)}</span>
+        </div>
 
-      <ul class="card-feature-list">
-        ${app.features.map(f => `
-          <li class="card-feature-item">
-            <span class="card-feature-bullet">▸</span>
-            <span>${escapeHtml(f)}</span>
-          </li>
-        `).join('')}
-      </ul>
+        <p class="card-desc">${escapeHtml(app.description)}</p>
 
-      <div class="card-tech-chips">
-        ${app.tech.map(t => `<span class="card-tech-pill">${escapeHtml(t)}</span>`).join('')}
-      </div>
+        <div class="card-tech-row">
+          ${app.tech.map(t => `<span class="tech-tag">${escapeHtml(t)}</span>`).join('')}
+        </div>
 
-      <div class="card-bottom-actions">
-        <button type="button" class="btn-launch-arcade" data-launch-id="${app.id}">
-          <span>▶ JALANKAN DI WEB</span>
-        </button>
-        <div class="card-secondary-links">
-          <a href="${app.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn-ext-link">
-            <span>Tab Baru ↗</span>
-          </a>
-          <a href="${app.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn-ext-link">
-            <span>Source Code 🐙</span>
-          </a>
+        <div class="card-actions">
+          <button type="button" class="btn-open-in-app" data-launch="${app.id}">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Buka di Sini</span>
+          </button>
+          <div class="card-links-row">
+            <a href="${app.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn-ext-link">
+              <span>Tab Baru ↗</span>
+            </a>
+            <a href="${app.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn-ext-link">
+              <span>GitHub 🐙</span>
+            </a>
+          </div>
         </div>
       </div>
     `;
 
-    dom.arcadeGrid.appendChild(card);
+    dom.appsGrid.appendChild(card);
   });
 }
 
-function renderPinnedSection() {
+function renderPinnedBar() {
   if (state.pinnedIds.length === 0) {
-    dom.pinnedSection.classList.add('hidden');
+    dom.pinnedBar.classList.add('hidden');
     return;
   }
 
-  dom.pinnedSection.classList.remove('hidden');
-  dom.pinnedChipsRow.innerHTML = '';
+  dom.pinnedBar.classList.remove('hidden');
+  dom.pinnedTags.innerHTML = '';
 
   state.pinnedIds.forEach(id => {
-    const app = ARCADE_DATA.find(a => a.id === id);
+    const app = APPS_LIST.find(a => a.id === id);
     if (!app) return;
 
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'pinned-btn';
-    btn.dataset.launchId = app.id;
-    btn.style.borderColor = app.accent;
-    btn.innerHTML = `
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'pin-chip';
+    chip.dataset.launch = app.id;
+    chip.innerHTML = `
       <span style="color: ${app.accent}">●</span>
       <span>${escapeHtml(app.title)}</span>
     `;
-    dom.pinnedChipsRow.appendChild(btn);
+    dom.pinnedTags.appendChild(chip);
   });
 }
 
 function togglePin(id) {
-  playSound(600, 'square', 0.03);
   if (state.pinnedIds.includes(id)) {
     state.pinnedIds = state.pinnedIds.filter(i => i !== id);
   } else {
     state.pinnedIds.push(id);
   }
-  localStorage.setItem('nzadev_pinned_apps', JSON.stringify(state.pinnedIds));
-  renderPinnedSection();
+  localStorage.setItem('nzadev_pinned', JSON.stringify(state.pinnedIds));
+  renderPinnedBar();
   renderGrid();
 }
 
-function openTheater(appId) {
-  const app = ARCADE_DATA.find(a => a.id === appId);
+function openViewer(appId) {
+  const app = APPS_LIST.find(a => a.id === appId);
   if (!app) return;
 
-  playSound(660, 'sine', 0.06);
-  setTimeout(() => playSound(880, 'sine', 0.08), 50);
+  state.activeApp = app;
 
-  state.activeTheaterApp = app;
+  dom.viewerTitle.textContent = app.title;
+  dom.viewerAddress.textContent = app.liveUrl;
+  dom.btnVwNewtab.href = app.liveUrl;
+  dom.btnVwSource.href = app.repoUrl;
 
-  dom.theaterName.textContent = app.title;
-  dom.theaterUrl.textContent = app.liveUrl;
-  dom.theaterAppBadge.textContent = app.categoryLabel.toUpperCase();
-  dom.theaterAppBadge.style.color = app.accent;
-  dom.theaterAppBadge.style.borderColor = app.accent;
+  dom.viewerSpinner.classList.remove('hidden');
+  dom.viewerIframe.src = app.liveUrl;
 
-  dom.btnThNewtab.href = app.liveUrl;
-  dom.btnThRepo.href = app.repoUrl;
-
-  dom.theaterLoading.classList.remove('hidden');
-  dom.theaterIframe.src = app.liveUrl;
-
-  dom.theaterIframe.onload = () => {
-    dom.theaterLoading.classList.add('hidden');
+  dom.viewerIframe.onload = () => {
+    dom.viewerSpinner.classList.add('hidden');
   };
 
-  dom.theaterModal.classList.add('active');
-  dom.theaterModal.setAttribute('aria-hidden', 'false');
+  dom.viewerModal.classList.add('active');
+  dom.viewerModal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 
   window.location.hash = `app=${app.id}`;
 }
 
-function closeTheater() {
-  playSound(320, 'sine', 0.04);
-  dom.theaterModal.classList.remove('active');
-  dom.theaterModal.setAttribute('aria-hidden', 'true');
-  dom.theaterIframe.src = 'about:blank';
-  state.activeTheaterApp = null;
+function closeViewer() {
+  dom.viewerModal.classList.remove('active');
+  dom.viewerModal.setAttribute('aria-hidden', 'true');
+  dom.viewerIframe.src = 'about:blank';
+  state.activeApp = null;
   document.body.style.overflow = '';
   if (window.location.hash.startsWith('#app=')) {
     history.replaceState(null, '', window.location.pathname);
   }
 }
 
-function reloadTheater() {
-  if (!state.activeTheaterApp) return;
-  playSound(480, 'triangle', 0.04);
-  dom.theaterLoading.classList.remove('hidden');
-  dom.theaterIframe.src = state.activeTheaterApp.liveUrl;
+function reloadViewer() {
+  if (!state.activeApp) return;
+  dom.viewerSpinner.classList.remove('hidden');
+  dom.viewerIframe.src = state.activeApp.liveUrl;
 }
 
-function toggleTheaterFullscreen() {
-  playSound(500, 'triangle', 0.04);
-  dom.theaterWindow.classList.toggle('fullscreen');
+function toggleViewerFullscreen() {
+  dom.viewerWindow.classList.toggle('fullscreen');
 }
 
-function openSpotlight() {
-  playSound(540, 'triangle', 0.04);
-  dom.spotlightModal.classList.add('active');
-  dom.spotlightModal.setAttribute('aria-hidden', 'false');
-  dom.spotlightInput.value = '';
-  filterSpotlight('');
-  setTimeout(() => dom.spotlightInput.focus(), 50);
+function openSearch() {
+  dom.searchModal.classList.add('active');
+  dom.searchModal.setAttribute('aria-hidden', 'false');
+  dom.paletteSearchInput.value = '';
+  filterPalette('');
+  setTimeout(() => dom.paletteSearchInput.focus(), 50);
 }
 
-function closeSpotlight() {
-  dom.spotlightModal.classList.remove('active');
-  dom.spotlightModal.setAttribute('aria-hidden', 'true');
+function closeSearch() {
+  dom.searchModal.classList.remove('active');
+  dom.searchModal.setAttribute('aria-hidden', 'true');
 }
 
-function filterSpotlight(q) {
+function filterPalette(q) {
   const query = q.trim().toLowerCase();
-  state.paletteFiltered = ARCADE_DATA.filter(app => {
+  state.paletteFiltered = APPS_LIST.filter(app => {
     if (!query) return true;
     return app.title.toLowerCase().includes(query) ||
            app.subtitle.toLowerCase().includes(query) ||
            app.description.toLowerCase().includes(query) ||
-           app.categoryLabel.toLowerCase().includes(query) ||
+           app.categoryName.toLowerCase().includes(query) ||
            app.tech.some(t => t.toLowerCase().includes(query));
   });
 
-  state.paletteSelectedIdx = 0;
-  renderSpotlightRows();
+  state.paletteIndex = 0;
+  renderPalette();
 }
 
-function renderSpotlightRows() {
-  dom.spotlightList.innerHTML = '';
-  dom.spotlightCounter.textContent = `${state.paletteFiltered.length} Aplikasi`;
+function renderPalette() {
+  dom.paletteResults.innerHTML = '';
+  dom.paletteStats.textContent = `${state.paletteFiltered.length} Aplikasi`;
 
   if (state.paletteFiltered.length === 0) {
-    dom.spotlightList.innerHTML = `
-      <div style="padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+    dom.paletteResults.innerHTML = `
+      <div style="padding: 1.25rem; text-align: center; color: var(--text-dim); font-size: 0.85rem;">
         Tidak ada aplikasi yang cocok
       </div>
     `;
@@ -491,42 +344,33 @@ function renderSpotlightRows() {
   }
 
   state.paletteFiltered.forEach((app, idx) => {
-    const row = document.createElement('div');
-    row.className = `spotlight-row ${idx === state.paletteSelectedIdx ? 'selected' : ''}`;
-    row.style.setProperty('--sp-accent', app.accent);
-    row.innerHTML = `
+    const item = document.createElement('div');
+    item.className = `palette-item ${idx === state.paletteIndex ? 'selected' : ''}`;
+    item.innerHTML = `
       <div>
-        <div class="sp-title">${escapeHtml(app.title)}</div>
-        <div class="sp-sub">${escapeHtml(app.subtitle)}</div>
+        <div class="p-title">${escapeHtml(app.title)}</div>
+        <div class="p-sub">${escapeHtml(app.subtitle)}</div>
       </div>
-      <div class="sp-badge">${app.tagIcon} ${escapeHtml(app.categoryLabel)}</div>
+      <span class="p-cat">${escapeHtml(app.categoryName)}</span>
     `;
 
-    row.addEventListener('click', () => {
-      closeSpotlight();
-      openTheater(app.id);
+    item.addEventListener('click', () => {
+      closeSearch();
+      openViewer(app.id);
     });
 
-    dom.spotlightList.appendChild(row);
+    dom.paletteResults.appendChild(item);
   });
 }
 
-function updateSpotlightSelection() {
-  const rows = dom.spotlightList.querySelectorAll('.spotlight-row');
-  rows.forEach((r, idx) => {
-    r.classList.toggle('selected', idx === state.paletteSelectedIdx);
-    if (idx === state.paletteSelectedIdx) {
-      r.scrollIntoView({ block: 'nearest' });
+function updatePaletteSelection() {
+  const items = dom.paletteResults.querySelectorAll('.palette-item');
+  items.forEach((item, idx) => {
+    item.classList.toggle('selected', idx === state.paletteIndex);
+    if (idx === state.paletteIndex) {
+      item.scrollIntoView({ block: 'nearest' });
     }
   });
-}
-
-function hexToRgb(hex) {
-  const c = hex.replace('#', '');
-  if (c.length === 3) {
-    return `${parseInt(c[0]+c[0], 16)}, ${parseInt(c[1]+c[1], 16)}, ${parseInt(c[2]+c[2], 16)}`;
-  }
-  return `${parseInt(c.substring(0, 2), 16)}, ${parseInt(c.substring(2, 4), 16)}, ${parseInt(c.substring(4, 6), 16)}`;
 }
 
 function escapeHtml(str) {
@@ -541,156 +385,144 @@ function escapeHtml(str) {
 }
 
 function attachEvents() {
-  dom.categoryDock.addEventListener('click', e => {
-    const tab = e.target.closest('.dock-tab');
-    if (!tab) return;
-    playSound(420, 'triangle', 0.03);
-    dom.categoryDock.querySelectorAll('.dock-tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    state.activeCat = tab.dataset.cat;
+  dom.filterSegmented.addEventListener('click', e => {
+    const btn = e.target.closest('.segment-btn');
+    if (!btn) return;
+    dom.filterSegmented.querySelectorAll('.segment-btn').forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    state.activeCategory = btn.dataset.category;
     renderGrid();
   });
 
-  dom.deckSearchInput.addEventListener('input', e => {
+  dom.inlineSearch.addEventListener('input', e => {
     state.searchQuery = e.target.value;
-    dom.btnClearDeckSearch.classList.toggle('hidden', !state.searchQuery);
+    dom.btnClearInput.classList.toggle('hidden', !state.searchQuery);
     renderGrid();
   });
 
-  dom.btnClearDeckSearch.addEventListener('click', () => {
-    playSound(380, 'sine', 0.03);
-    dom.deckSearchInput.value = '';
+  dom.btnClearInput.addEventListener('click', () => {
+    dom.inlineSearch.value = '';
     state.searchQuery = '';
-    dom.btnClearDeckSearch.classList.add('hidden');
+    dom.btnClearInput.classList.add('hidden');
     renderGrid();
   });
 
-  dom.btnResetSearch.addEventListener('click', () => {
-    playSound(380, 'sine', 0.03);
-    state.activeCat = 'all';
+  dom.btnResetFilter.addEventListener('click', () => {
+    state.activeCategory = 'all';
     state.searchQuery = '';
-    dom.deckSearchInput.value = '';
-    dom.btnClearDeckSearch.classList.add('hidden');
-    dom.categoryDock.querySelectorAll('.dock-tab').forEach(t => {
-      t.classList.toggle('active', t.dataset.cat === 'all');
+    dom.inlineSearch.value = '';
+    dom.btnClearInput.classList.add('hidden');
+    dom.filterSegmented.querySelectorAll('.segment-btn').forEach(b => {
+      const isAll = b.dataset.category === 'all';
+      b.classList.toggle('active', isAll);
+      b.setAttribute('aria-selected', isAll ? 'true' : 'false');
     });
     renderGrid();
   });
 
-  dom.btnModeGrid.addEventListener('click', () => {
-    playSound(400, 'square', 0.02);
+  dom.btnViewGrid.addEventListener('click', () => {
     state.isListView = false;
-    dom.btnModeGrid.classList.add('active');
-    dom.btnModeList.classList.remove('active');
-    dom.arcadeGrid.classList.remove('list-view');
+    dom.btnViewGrid.classList.add('active');
+    dom.btnViewList.classList.remove('active');
+    dom.appsGrid.classList.remove('list-view');
   });
 
-  dom.btnModeList.addEventListener('click', () => {
-    playSound(400, 'square', 0.02);
+  dom.btnViewList.addEventListener('click', () => {
     state.isListView = true;
-    dom.btnModeList.classList.add('active');
-    dom.btnModeGrid.classList.remove('active');
-    dom.arcadeGrid.classList.add('list-view');
+    dom.btnViewList.classList.add('active');
+    dom.btnViewGrid.classList.remove('active');
+    dom.appsGrid.classList.add('list-view');
   });
 
   document.addEventListener('click', e => {
-    const launchBtn = e.target.closest('[data-launch-id]');
+    const launchBtn = e.target.closest('[data-launch]');
     if (launchBtn) {
-      openTheater(launchBtn.dataset.launchId);
+      openViewer(launchBtn.dataset.launch);
       return;
     }
 
-    const pinBtn = e.target.closest('[data-pin-id]');
+    const pinBtn = e.target.closest('[data-pin]');
     if (pinBtn) {
-      togglePin(pinBtn.dataset.pinId);
+      togglePin(pinBtn.dataset.pin);
       return;
     }
   });
 
-  dom.btnPlaySpotlight.addEventListener('click', () => {
-    const cur = ARCADE_DATA[state.spotlightIdx];
-    if (cur) openTheater(cur.id);
-  });
-
-  dom.btnResetPin.addEventListener('click', () => {
-    playSound(300, 'sine', 0.04);
+  dom.btnUnpinAll.addEventListener('click', () => {
     state.pinnedIds = [];
-    localStorage.removeItem('nzadev_pinned_apps');
-    renderPinnedSection();
+    localStorage.removeItem('nzadev_pinned');
+    renderPinnedBar();
     renderGrid();
   });
 
-  dom.btnSoundToggle.addEventListener('click', () => {
-    state.sfxEnabled = !state.sfxEnabled;
-    localStorage.setItem('nzadev_sfx_enabled', state.sfxEnabled);
-    dom.soundIcon.textContent = state.sfxEnabled ? '🔊' : '🔇';
-    dom.btnSoundToggle.querySelector('.btn-text').textContent = state.sfxEnabled ? 'SFX ON' : 'MUTE';
-    if (state.sfxEnabled) playSound(550, 'sine', 0.05);
-  });
+  dom.btnOpenSearch.addEventListener('click', openSearch);
+  dom.searchOverlay.addEventListener('click', closeSearch);
 
-  dom.btnSearchTrigger.addEventListener('click', openSpotlight);
-  dom.spotlightBackdrop.addEventListener('click', closeSpotlight);
-  dom.spotlightInput.addEventListener('input', e => filterSpotlight(e.target.value));
+  dom.paletteSearchInput.addEventListener('input', e => filterPalette(e.target.value));
 
-  dom.spotlightInput.addEventListener('keydown', e => {
+  dom.paletteSearchInput.addEventListener('keydown', e => {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
       if (state.paletteFiltered.length > 0) {
-        playSound(440, 'triangle', 0.02);
-        state.paletteSelectedIdx = (state.paletteSelectedIdx + 1) % state.paletteFiltered.length;
-        updateSpotlightSelection();
+        state.paletteIndex = (state.paletteIndex + 1) % state.paletteFiltered.length;
+        updatePaletteSelection();
       }
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       if (state.paletteFiltered.length > 0) {
-        playSound(440, 'triangle', 0.02);
-        state.paletteSelectedIdx = (state.paletteSelectedIdx - 1 + state.paletteFiltered.length) % state.paletteFiltered.length;
-        updateSpotlightSelection();
+        state.paletteIndex = (state.paletteIndex - 1 + state.paletteFiltered.length) % state.paletteFiltered.length;
+        updatePaletteSelection();
       }
     } else if (e.key === 'Enter') {
       e.preventDefault();
-      const target = state.paletteFiltered[state.paletteSelectedIdx];
+      const target = state.paletteFiltered[state.paletteIndex];
       if (target) {
-        closeSpotlight();
-        openTheater(target.id);
+        closeSearch();
+        openViewer(target.id);
       }
     } else if (e.key === 'Escape') {
-      closeSpotlight();
+      closeSearch();
     }
   });
 
-  dom.btnThClose.addEventListener('click', closeTheater);
-  dom.theaterBackdrop.addEventListener('click', closeTheater);
-  dom.btnThReload.addEventListener('click', reloadTheater);
-  dom.btnThFullscreen.addEventListener('click', toggleTheaterFullscreen);
+  dom.btnVwClose.addEventListener('click', closeViewer);
+  dom.dotClose.addEventListener('click', closeViewer);
+  dom.viewerOverlay.addEventListener('click', closeViewer);
+  dom.btnVwReload.addEventListener('click', reloadViewer);
+  dom.btnVwFullscreen.addEventListener('click', toggleViewerFullscreen);
+  dom.dotMax.addEventListener('click', toggleViewerFullscreen);
 
   window.addEventListener('keydown', e => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
       e.preventDefault();
-      if (dom.spotlightModal.classList.contains('active')) {
-        closeSpotlight();
+      if (dom.searchModal.classList.contains('active')) {
+        closeSearch();
       } else {
-        openSpotlight();
+        openSearch();
       }
       return;
     }
 
     if (e.key === 'Escape') {
-      if (dom.spotlightModal.classList.contains('active')) {
-        closeSpotlight();
-      } else if (dom.theaterModal.classList.contains('active')) {
-        closeTheater();
+      if (dom.searchModal.classList.contains('active')) {
+        closeSearch();
+      } else if (dom.viewerModal.classList.contains('active')) {
+        closeViewer();
       }
       return;
     }
 
-    if (!dom.spotlightModal.classList.contains('active') && !dom.theaterModal.classList.contains('active')) {
+    if (!dom.searchModal.classList.contains('active') && !dom.viewerModal.classList.contains('active')) {
       const tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
       if (tag !== 'input' && tag !== 'textarea') {
         const num = parseInt(e.key, 10);
-        if (num >= 1 && num <= ARCADE_DATA.length) {
-          const app = ARCADE_DATA[num - 1];
-          if (app) openTheater(app.id);
+        if (num >= 1 && num <= APPS_LIST.length) {
+          const app = APPS_LIST[num - 1];
+          if (app) openViewer(app.id);
         }
       }
     }
@@ -703,8 +535,8 @@ function checkHash() {
   const hash = window.location.hash;
   if (hash.startsWith('#app=')) {
     const id = hash.replace('#app=', '');
-    if (ARCADE_DATA.some(a => a.id === id)) {
-      openTheater(id);
+    if (APPS_LIST.some(a => a.id === id)) {
+      openViewer(id);
     }
   }
 }
@@ -718,36 +550,25 @@ function initPwa() {
   window.addEventListener('beforeinstallprompt', e => {
     e.preventDefault();
     promptEvent = e;
-    dom.btnInstallApp.classList.remove('hidden');
+    dom.btnInstall.classList.remove('hidden');
   });
 
-  dom.btnInstallApp.addEventListener('click', () => {
+  dom.btnInstall.addEventListener('click', () => {
     if (!promptEvent) return;
     promptEvent.prompt();
     promptEvent.userChoice.then(() => {
       promptEvent = null;
-      dom.btnInstallApp.classList.add('hidden');
+      dom.btnInstall.classList.add('hidden');
     });
   });
 }
 
 function init() {
-  updateClock();
-  setInterval(updateClock, 1000);
-
-  updateSpotlight(0);
   renderGrid();
-  renderPinnedSection();
+  renderPinnedBar();
   attachEvents();
   initPwa();
   checkHash();
-
-  setInterval(() => {
-    if (!document.hidden && !dom.theaterModal.classList.contains('active')) {
-      state.spotlightIdx = (state.spotlightIdx + 1) % ARCADE_DATA.length;
-      updateSpotlight(state.spotlightIdx);
-    }
-  }, 8000);
 }
 
 document.addEventListener('DOMContentLoaded', init);

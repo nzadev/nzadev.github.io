@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <meta name="theme-color" content="#090a0f">
-  <meta name="description" content="NzaDev Arcade Hub — Koleksi Game, Web Apps, Kasir POS & Tools buatan Nabil Zaenal Assyqin (nzadev).">
+  <meta name="theme-color" content="#090a10">
+  <meta name="description" content="Koleksi Game & Web App buatan Nabil Zaenal Assyqin (nzadev). Jalankan langsung di browser atau buka repositori GitHub.">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>NzaDev Arcade Hub — Unified Game &amp; App Launcher</title>
+  <title>NzaDev — Koleksi Game &amp; Aplikasi Web</title>
 
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/svg+xml" href="icon.svg">
@@ -15,217 +15,202 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="grid-backdrop" aria-hidden="true"></div>
-
-  <div class="app-shell">
-    <header class="console-header">
-      <div class="console-header-inner">
-        <div class="header-brand-block">
-          <div class="brand-badge-icon">
-            <img src="icon.svg" alt="NzaDev Icon" width="28" height="28">
+  <div class="site-container">
+    <header class="navbar">
+      <div class="navbar-content">
+        <a href="./" class="nav-brand" aria-label="NzaDev Beranda">
+          <div class="brand-avatar">
+            <img src="icon.svg" alt="NzaDev" width="28" height="28">
           </div>
-          <div class="brand-text-group">
-            <span class="console-title">NZA // ARCADE HUB</span>
-            <span class="console-sub">PORTAL APLIKASI &amp; GAME MANDIRI</span>
+          <div class="brand-name-group">
+            <span class="brand-title">nzadev<span class="brand-slash">/</span>apps</span>
+            <span class="brand-role">Web Portfolio &amp; Launcher</span>
           </div>
-        </div>
+        </a>
 
-        <div class="header-status-center">
-          <div class="clock-display" id="clock-display" title="Waktu Lokal (WIB)">00:00:00 WIB</div>
-          <div class="sys-pulse" title="GitHub Pages Online">
-            <span class="sys-led"></span>
-            <span>SYSTEM ONLINE</span>
-          </div>
-        </div>
-
-        <div class="header-actions">
-          <button type="button" class="action-btn" id="btn-sound-toggle" title="Toggle Efek Suara Arcade" aria-label="Toggle Suara">
-            <span id="sound-icon">🔊</span>
-            <span class="btn-text">SFX ON</span>
-          </button>
-
-          <button type="button" class="action-btn" id="btn-search-trigger" title="Cari Cepat (Ctrl+K)" aria-label="Cari Cepat">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2">
+        <div class="nav-center">
+          <button type="button" class="nav-search-btn" id="btn-open-search" aria-label="Cari aplikasi (Ctrl+K)">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <span class="btn-text">CARI</span>
-            <kbd class="hdr-kbd">Ctrl+K</kbd>
+            <span>Cari aplikasi atau game...</span>
+            <kbd>Ctrl K</kbd>
           </button>
+        </div>
 
-          <a href="https://github.com/nzadev" target="_blank" rel="noopener noreferrer" class="action-btn icon-only" title="GitHub nzadev" aria-label="GitHub">
+        <div class="nav-right">
+          <a href="https://github.com/nzadev" target="_blank" rel="noopener noreferrer" class="nav-link-btn" title="Kunjungi GitHub nzadev">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
             </svg>
+            <span class="nav-btn-text">GitHub</span>
           </a>
 
-          <button type="button" class="btn-install-app hidden" id="btn-install-app" title="Install Web App">
-            <span>+ INSTALL</span>
+          <button type="button" class="nav-install-btn hidden" id="btn-install" aria-label="Install Aplikasi">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Install</span>
           </button>
         </div>
       </div>
     </header>
 
-    <main class="console-body">
-      <!-- HERO MARQUEE SPOTLIGHT -->
-      <section class="marquee-spotlight" id="marquee-spotlight">
-        <div class="marquee-content">
-          <div class="marquee-tag">
-            <span class="marquee-tag-icon">⚡</span>
-            <span id="marquee-tag-label">FEATURED SPOTLIGHT</span>
+    <main class="page-main">
+      <section class="hero-block">
+        <div class="hero-inner">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span>Koleksi Proyek Mandiri</span>
           </div>
-          <h1 class="marquee-title" id="marquee-title">Protocol Zero</h1>
-          <p class="marquee-desc" id="marquee-desc">
-            Game aksi bertahan hidup futuristik dengan canvas rendering, audio efek dinamis, dan prototype APK download.
+          <h1 class="hero-heading">Koleksi Game &amp; Aplikasi Web</h1>
+          <p class="hero-subtext">
+            Satu tempat untuk mengakses dan mencoba game browser, kasir POS, alat manajemen jaringan, kas digital, dan utility buatan Nabil Zaenal Assyqin.
           </p>
-          <div class="marquee-tech-row" id="marquee-tech-row"></div>
-          <div class="marquee-actions">
-            <button type="button" class="btn-play-spotlight" id="btn-play-spotlight">
-              <span class="play-triangle">▶</span>
-              <span>MAINKAN SEKARANG</span>
+
+          <div class="pinned-bar hidden" id="pinned-bar">
+            <span class="pinned-title">Disematkan:</span>
+            <div class="pinned-tags" id="pinned-tags"></div>
+            <button type="button" class="btn-unpin-all" id="btn-unpin-all">Reset</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="filter-bar">
+        <div class="filter-segmented" id="filter-segmented" role="tablist" aria-label="Kategori">
+          <button type="button" class="segment-btn active" data-category="all" role="tab" aria-selected="true">Semua (6)</button>
+          <button type="button" class="segment-btn" data-category="game" role="tab" aria-selected="false">Game</button>
+          <button type="button" class="segment-btn" data-category="business" role="tab" aria-selected="false">Kasir POS</button>
+          <button type="button" class="segment-btn" data-category="network" role="tab" aria-selected="false">Jaringan</button>
+          <button type="button" class="segment-btn" data-category="education" role="tab" aria-selected="false">Buku Kas</button>
+          <button type="button" class="segment-btn" data-category="utility" role="tab" aria-selected="false">Utility</button>
+        </div>
+
+        <div class="filter-tools">
+          <div class="search-input-wrap">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="inline-search" placeholder="Cari nama atau fitur..." autocomplete="off">
+            <button type="button" id="btn-clear-input" class="btn-clear-input hidden" aria-label="Hapus teks">✕</button>
+          </div>
+
+          <div class="view-toggle">
+            <button type="button" class="btn-view active" id="btn-view-grid" title="Tampilan Grid">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
             </button>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="btn-alt-spotlight" id="btn-newtab-spotlight">
-              <span>Buka Tab Baru ↗</span>
-            </a>
-            <div class="marquee-quick-nav">
-              <span class="quick-nav-label">Switch:</span>
-              <div class="quick-nav-dots" id="quick-nav-dots"></div>
-            </div>
-          </div>
-        </div>
-        <div class="marquee-preview-box" id="marquee-preview-box">
-          <div class="marquee-preview-screen" id="marquee-preview-screen"></div>
-        </div>
-      </section>
-
-      <!-- PINNED QUICK BAR -->
-      <section class="pinned-section hidden" id="pinned-section">
-        <div class="pinned-header">
-          <span class="pinned-label">★ PINNED QUICK DOCK:</span>
-          <button type="button" class="btn-reset-pin" id="btn-reset-pin">Reset Pin</button>
-        </div>
-        <div class="pinned-chips-row" id="pinned-chips-row"></div>
-      </section>
-
-      <!-- NAVIGATION & FILTER DECK -->
-      <section class="deck-controls">
-        <div class="category-dock" id="category-dock" role="tablist">
-          <button type="button" class="dock-tab active" data-cat="all">
-            <span class="dock-icon">✦</span>
-            <span>SEMUA (6)</span>
-          </button>
-          <button type="button" class="dock-tab" data-cat="game">
-            <span class="dock-icon">🎮</span>
-            <span>GAMES &amp; CONTROLLER</span>
-          </button>
-          <button type="button" class="dock-tab" data-cat="business">
-            <span class="dock-icon">💼</span>
-            <span>KASIR &amp; BISNIS</span>
-          </button>
-          <button type="button" class="dock-tab" data-cat="network">
-            <span class="dock-icon">🌐</span>
-            <span>JARINGAN &amp; IT</span>
-          </button>
-          <button type="button" class="dock-tab" data-cat="education">
-            <span class="dock-icon">📊</span>
-            <span>KAS &amp; MONITORING</span>
-          </button>
-          <button type="button" class="dock-tab" data-cat="utility">
-            <span class="dock-icon">⚡</span>
-            <span>TOOLS &amp; UTILITY</span>
-          </button>
-        </div>
-
-        <div class="deck-search-wrap">
-          <div class="deck-input-box">
-            <span class="deck-search-ico">🔍</span>
-            <input type="text" id="deck-search-input" placeholder="Filter cepat nama atau teknologi..." autocomplete="off">
-            <button type="button" id="btn-clear-deck-search" class="btn-clear-txt hidden">✕</button>
-          </div>
-          <div class="deck-view-switchers">
-            <button type="button" class="btn-layout-mode active" id="btn-mode-grid" title="Tampilan Grid">田</button>
-            <button type="button" class="btn-layout-mode" id="btn-mode-list" title="Tampilan List">☰</button>
+            <button type="button" class="btn-view" id="btn-view-list" title="Tampilan Daftar">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="8" y1="6" x2="21" y2="6"></line>
+                <line x1="8" y1="12" x2="21" y2="12"></line>
+                <line x1="8" y1="18" x2="21" y2="18"></line>
+                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+              </svg>
+            </button>
           </div>
         </div>
       </section>
 
-      <!-- CARDS SHOWCASE GRID -->
-      <section class="arcade-grid" id="arcade-grid"></section>
+      <section class="cards-container">
+        <div class="apps-grid" id="apps-grid"></div>
 
-      <!-- EMPTY STATE -->
-      <div class="empty-deck hidden" id="empty-deck">
-        <div class="empty-deck-icon">👾</div>
-        <h2>Tidak Ada Hasil yang Cocok</h2>
-        <p>Coba gunakan kata kunci pencarian lain atau pilih tab kategori yang berbeda.</p>
-        <button type="button" class="btn-reset-search" id="btn-reset-search">Reset Filter</button>
-      </div>
+        <div class="empty-results hidden" id="empty-results">
+          <div class="empty-icon">📂</div>
+          <h3>Aplikasi tidak ditemukan</h3>
+          <p>Coba gunakan kata kunci lain atau bersihkan filter pencarian.</p>
+          <button type="button" class="btn-reset-filter" id="btn-reset-filter">Tampilkan Semua</button>
+        </div>
+      </section>
     </main>
 
-    <footer class="console-footer">
-      <div class="footer-block-left">
-        <span class="ft-logo">NZADEV // HUB v2.0</span>
-        <span class="ft-meta">Karya Nabil Zaenal Assyqin • SMK Kartika X-1</span>
-      </div>
-      <div class="footer-block-center">
-        <span class="ft-shortcut"><kbd>1-6</kbd> Direct Launch</span>
-        <span class="ft-shortcut"><kbd>Ctrl+K</kbd> Command Palette</span>
-        <span class="ft-shortcut"><kbd>Esc</kbd> Close Runner</span>
-      </div>
-      <div class="footer-block-right">
-        <a href="https://github.com/nzadev" target="_blank" rel="noopener noreferrer" class="ft-link">github.com/nzadev</a>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-left">
+          <span class="footer-brand">nzadev.github.io</span>
+          <span class="footer-tagline">SMK Kartika X-1 • XII TKJ 1</span>
+        </div>
+        <div class="footer-center">
+          <span class="footer-keys"><kbd>Ctrl+K</kbd> Cari</span>
+          <span class="footer-keys"><kbd>1-6</kbd> Buka Langsung</span>
+          <span class="footer-keys"><kbd>Esc</kbd> Tutup</span>
+        </div>
+        <div class="footer-right">
+          <a href="https://github.com/nzadev" target="_blank" rel="noopener noreferrer">github.com/nzadev</a>
+        </div>
       </div>
     </footer>
   </div>
 
-  <!-- IN-APP THEATER RUNNER MODAL -->
-  <div class="theater-modal" id="theater-modal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="theater-backdrop" id="theater-backdrop"></div>
-    <div class="theater-window">
-      <header class="theater-titlebar">
-        <div class="theater-left-meta">
-          <div class="theater-app-badge" id="theater-app-badge">APP</div>
-          <div class="theater-text-titles">
-            <span class="theater-name" id="theater-name">Nama Aplikasi</span>
-            <span class="theater-url" id="theater-url">https://...</span>
-          </div>
+  <!-- MODAL VIEWER / IN-APP WINDOW -->
+  <div class="viewer-modal" id="viewer-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="viewer-overlay" id="viewer-overlay"></div>
+    <div class="viewer-window">
+      <header class="viewer-topbar">
+        <div class="window-decorations">
+          <span class="dot dot-close" id="dot-close" title="Tutup (Esc)"></span>
+          <span class="dot dot-min" id="dot-min"></span>
+          <span class="dot dot-max" id="dot-max" title="Layar Penuh"></span>
         </div>
-        <div class="theater-ctrls">
-          <button type="button" class="th-btn" id="btn-th-reload" title="Muat Ulang Aplikasi">🔄 Reload</button>
-          <a href="#" target="_blank" rel="noopener noreferrer" class="th-btn" id="btn-th-newtab" title="Buka Tab Baru">↗ Buka Tab Baru</a>
-          <a href="#" target="_blank" rel="noopener noreferrer" class="th-btn" id="btn-th-repo" title="Buka Repositori GitHub">🐙 Source Code</a>
-          <button type="button" class="th-btn" id="btn-th-fullscreen" title="Layar Penuh (F)">⛶ Fullscreen</button>
-          <button type="button" class="th-btn close-th" id="btn-th-close" title="Tutup (Esc)">✕ Tutup</button>
+
+        <div class="viewer-meta">
+          <span class="viewer-title" id="viewer-title">Nama Aplikasi</span>
+          <span class="viewer-address" id="viewer-address">https://...</span>
+        </div>
+
+        <div class="viewer-actions">
+          <button type="button" class="vw-btn" id="btn-vw-reload" title="Muat Ulang">Muat Ulang</button>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="vw-btn" id="btn-vw-newtab">Tab Baru ↗</a>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="vw-btn" id="btn-vw-source">GitHub 🐙</a>
+          <button type="button" class="vw-btn" id="btn-vw-fullscreen">Layar Penuh</button>
+          <button type="button" class="vw-btn vw-btn-close" id="btn-vw-close">✕ Tutup</button>
         </div>
       </header>
-      <div class="theater-viewport">
-        <div class="theater-loading" id="theater-loading">
-          <div class="th-spinner"></div>
-          <span>MEMUAT ENGINE APLIKASI...</span>
+
+      <div class="viewer-frame-container">
+        <div class="viewer-spinner" id="viewer-spinner">
+          <div class="spinner-circle"></div>
+          <span>Memuat aplikasi...</span>
         </div>
-        <iframe id="theater-iframe" class="theater-iframe" title="Aplikasi Web" allow="gamepad; accelerometer; gyroscope; clipboard-write; web-share"></iframe>
+        <iframe id="viewer-iframe" class="viewer-iframe" title="Pratinjau Aplikasi" allow="gamepad; accelerometer; gyroscope; clipboard-write; web-share"></iframe>
       </div>
     </div>
   </div>
 
-  <!-- COMMAND PALETTE (CTRL+K) -->
-  <div class="spotlight-modal" id="spotlight-modal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="spotlight-backdrop" id="spotlight-backdrop"></div>
-    <div class="spotlight-box">
-      <div class="spotlight-top">
-        <span class="spotlight-ico">⚡</span>
-        <input type="text" id="spotlight-input" placeholder="Ketik nama game, sistem kasir, helpdesk, dsb..." autocomplete="off">
-        <kbd class="spotlight-esc">ESC</kbd>
+  <!-- SPOTLIGHT SEARCH (CTRL+K) -->
+  <div class="search-modal" id="search-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="search-overlay" id="search-overlay"></div>
+    <div class="search-palette">
+      <div class="search-palette-header">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="palette-search-input" placeholder="Cari game, POS, network, kas..." autocomplete="off">
+        <kbd>ESC</kbd>
       </div>
-      <div class="spotlight-list" id="spotlight-list"></div>
-      <div class="spotlight-bottom">
-        <span><kbd>↑</kbd><kbd>↓</kbd> Navigasi</span>
+
+      <div class="search-palette-results" id="palette-results"></div>
+
+      <div class="search-palette-footer">
+        <span><kbd>↑</kbd> <kbd>↓</kbd> Navigasi</span>
         <span><kbd>↵</kbd> Jalankan</span>
-        <span id="spotlight-counter">6 Aplikasi</span>
+        <span id="palette-stats">6 Aplikasi</span>
       </div>
     </div>
   </div>
