@@ -26,8 +26,25 @@ const APPS_LIST = [
     description: 'Mengubah smartphone menjadi gamepad PC nirkabel via WebSocket dengan QR Scanner, D-Pad, Dual Analog Stick, dan Red Mode.',
     liveUrl: 'https://nzadev.github.io/airpad/',
     repoUrl: 'https://github.com/nzadev/airpad',
-    tech: ['WebSocket', 'Haptic Touch', 'QR Scanner', 'Gamepad API'],
+    apkUrl: 'https://nzadev.github.io/airpad/AirPad.apk',
+    tech: ['WebSocket', 'Haptic Touch', 'QR Scanner', 'Gamepad API', 'APK HP'],
     iconSvg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="10" r="1"/><circle cx="18" cy="12" r="1"/><circle cx="16" cy="14" r="1"/><circle cx="14" cy="12" r="1"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/></svg>`
+  },
+  {
+    id: 'airpad-tv',
+    title: 'AirPad TV Edition',
+    subtitle: 'Layar Mabar & QR Dashboard TV',
+    category: 'game',
+    categoryName: 'Game & TV',
+    accent: '#38bdf8',
+    artBg: 'linear-gradient(135deg, #081d2c 0%, #030d14 100%)',
+    specBadge: 'Android TV / Web',
+    description: 'Dashboard TV & Control Center layar lebar untuk TV Coocaa & Android TV. Menampilkan QR Code pairing instan, kode 4-digit, dan status 8 player gamepad real-time.',
+    liveUrl: 'https://nzadev.github.io/airpad/dashboard',
+    repoUrl: 'https://github.com/nzadev/airpad',
+    apkUrl: 'https://nzadev.github.io/airpad/AirPad-TV.apk',
+    tech: ['Android TV', 'Leanback', 'Remote D-Pad', 'QR Pairing', 'APK TV'],
+    iconSvg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/><line x1="12" y1="17" x2="12" y2="17.01"/></svg>`
   },
   {
     id: 'nexus-pos',
@@ -293,6 +310,10 @@ function renderGrid() {
             <span>Buka di Sini</span>
           </button>
           <div class="card-links-row">
+            ${app.apkUrl ? `
+            <a href="${app.apkUrl}" download class="btn-ext-link" style="color:#38bdf8; border-color:rgba(56,189,248,0.35);" title="Unduh File APK Langsung">
+              <span>📥 APK</span>
+            </a>` : ''}
             <a href="${app.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn-ext-link">
               <span>Tab Baru ↗</span>
             </a>
