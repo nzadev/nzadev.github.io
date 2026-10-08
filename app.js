@@ -22,12 +22,12 @@ const APPS_LIST = [
     categoryName: 'Game & Tool',
     accent: '#f43f5e',
     artBg: 'linear-gradient(135deg, #260a13 0%, #100408 100%)',
-    specBadge: 'WebSocket Bridge',
-    description: 'Mengubah smartphone menjadi gamepad PC nirkabel via WebSocket dengan QR Scanner, D-Pad, Dual Analog Stick, dan Red Mode.',
+    specBadge: 'Stream & Bluetooth',
+    description: 'Gamepad HP nirkabel + Layar Game PC (Stardew Valley Split-Crop). Dilengkapi Mode Bluetooth HID khusus TV Coocaa, QR Scanner, dan latency 0ms.',
     liveUrl: 'https://nzadev.github.io/airpad/',
     repoUrl: 'https://github.com/nzadev/airpad',
     apkUrl: 'https://nzadev.github.io/airpad/AirPad.apk',
-    tech: ['WebSocket', 'Haptic Touch', 'QR Scanner', 'Gamepad API', 'APK HP'],
+    tech: ['Screen Streamer', 'Stardew Split-Crop', 'Bluetooth TV HID', 'WebSocket', 'APK HP'],
     iconSvg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="10" r="1"/><circle cx="18" cy="12" r="1"/><circle cx="16" cy="14" r="1"/><circle cx="14" cy="12" r="1"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/></svg>`
   },
   {
