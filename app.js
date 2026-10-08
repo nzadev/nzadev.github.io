@@ -105,6 +105,21 @@ const APPS_LIST = [
     repoUrl: 'https://github.com/nzadev/pure-pdf',
     tech: ['Expo Web', 'Zero Server', 'Web PDF Engine', 'Privacy First'],
     iconSvg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`
+  },
+  {
+    id: 'otakuverse',
+    title: 'OtakuVerse',
+    subtitle: 'Aniyomi Web Edition',
+    category: 'utility',
+    categoryName: 'Anime & Media',
+    accent: '#7c3aed',
+    artBg: 'linear-gradient(135deg, #130a24 0%, #060312 100%)',
+    specBadge: 'Aniyomi Web v3.0',
+    description: 'Platform streaming anime bebas iklan dengan multi-source scraper (Samehadaku, Otakudesu, AniList), cinema player MPV HUD, library watchlist, dan extensions manager Keiyoushi.',
+    liveUrl: 'https://nzadev.github.io/otakuverse/',
+    repoUrl: 'https://github.com/nzadev/otakuverse',
+    tech: ['Multi-Repo Scraper', 'Cinema Player', 'AniList API', 'Zero Ads'],
+    iconSvg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>`
   }
 ];
 
