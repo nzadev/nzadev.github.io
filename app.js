@@ -95,6 +95,8 @@ const state = {
   activeCategory: 'all',
   searchQuery: '',
   isListView: false,
+  spotlightIdx: 0,
+  sfxEnabled: localStorage.getItem('nzadev_sfx') === 'true',
   pinnedIds: JSON.parse(localStorage.getItem('nzadev_pinned') || '[]'),
   activeApp: null,
   paletteFiltered: [],
@@ -133,8 +135,94 @@ const dom = {
   btnVwClose: document.getElementById('btn-vw-close'),
   dotClose: document.getElementById('dot-close'),
   dotMax: document.getElementById('dot-max'),
-  btnInstall: document.getElementById('btn-install')
+  btnInstall: document.getElementById('btn-install'),
+  btnSound: document.getElementById('btn-sound'),
+  soundIcon: document.getElementById('sound-icon'),
+  spotlightBanner: document.getElementById('spotlight-banner'),
+  spotlightHeading: document.getElementById('spotlight-heading'),
+  spotlightSummary: document.getElementById('spotlight-summary'),
+  spotlightBadgeText: document.getElementById('spotlight-badge-text'),
+  spotlightTechRow: document.getElementById('spotlight-tech-row'),
+  btnSpotlightLaunch: document.getElementById('btn-spotlight-launch'),
+  btnSpotlightLink: document.getElementById('btn-spotlight-link'),
+  spotlightIndicators: document.getElementById('spotlight-indicators'),
+  spotlightFrame: document.getElementById('spotlight-frame')
 };
+
+let audioContext = null;
+function playSfx(freq = 440, type = 'sine', duration = 0.04) {
+  if (!state.sfxEnabled) return;
+  try {
+    if (!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioContext.state === 'suspended') audioContext.resume();
+    const osc = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, audioContext.currentTime);
+    gain.gain.setValueAtTime(0.06, audioContext.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + duration);
+    osc.connect(gain);
+    gain.connect(audioContext.destination);
+    osc.start();
+    osc.stop(audioContext.currentTime + duration);
+  } catch (e) {}
+}
+
+function hexToRgb(hex) {
+  const c = hex.replace('#', '');
+  if (c.length === 3) {
+    return `${parseInt(c[0]+c[0], 16)}, ${parseInt(c[1]+c[1], 16)}, ${parseInt(c[2]+c[2], 16)}`;
+  }
+  return `${parseInt(c.substring(0, 2), 16)}, ${parseInt(c.substring(2, 4), 16)}, ${parseInt(c.substring(4, 6), 16)}`;
+}
+
+function updateSpotlight(index) {
+  state.spotlightIdx = index % APPS_LIST.length;
+  const app = APPS_LIST[state.spotlightIdx];
+  if (!app || !dom.spotlightBanner) return;
+
+  dom.spotlightHeading.textContent = app.title;
+  dom.spotlightSummary.textContent = app.description;
+  dom.spotlightBadgeText.textContent = `${app.categoryName.toUpperCase()} • UNGGULAN`;
+  dom.spotlightBanner.style.setProperty('--spotlight-accent', app.accent);
+  dom.spotlightBanner.style.setProperty('--spotlight-border', `rgba(${hexToRgb(app.accent)}, 0.4)`);
+
+  dom.spotlightTechRow.innerHTML = app.tech.map(t => `<span class="spotlight-pill">${escapeHtml(t)}</span>`).join('');
+  dom.btnSpotlightLink.href = app.liveUrl;
+
+  dom.spotlightFrame.style.background = app.artBg;
+  dom.spotlightFrame.style.borderColor = app.accent;
+  dom.spotlightFrame.innerHTML = `
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <span style="font-family:var(--font-mono); font-size:0.75rem; color:${app.accent}; font-weight:700;">${escapeHtml(app.specBadge)}</span>
+      <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#10b981; box-shadow:0 0 6px #10b981;"></span>
+    </div>
+    <div style="display:flex; align-items:center; gap:0.75rem; color:#ffffff;">
+      <div style="width:40px; height:40px; border-radius:8px; background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; color:${app.accent};">${app.iconSvg}</div>
+      <div>
+        <div style="font-weight:700; font-size:1.05rem;">${escapeHtml(app.title)}</div>
+        <div style="font-size:0.8rem; color:var(--text-dim);">${escapeHtml(app.subtitle)}</div>
+      </div>
+    </div>
+  `;
+
+  renderSpotlightDots();
+}
+
+function renderSpotlightDots() {
+  if (!dom.spotlightIndicators) return;
+  dom.spotlightIndicators.innerHTML = '';
+  APPS_LIST.forEach((app, idx) => {
+    const dot = document.createElement('div');
+    dot.className = `spotlight-dot-item ${idx === state.spotlightIdx ? 'active' : ''}`;
+    dot.title = app.title;
+    dot.addEventListener('click', () => {
+      playSfx(520, 'triangle', 0.03);
+      updateSpotlight(idx);
+    });
+    dom.spotlightIndicators.appendChild(dot);
+  });
+}
 
 function getFilteredApps() {
   return APPS_LIST.filter(app => {
@@ -528,6 +616,25 @@ function attachEvents() {
     }
   });
 
+  if (dom.btnSound) {
+    dom.btnSound.addEventListener('click', () => {
+      state.sfxEnabled = !state.sfxEnabled;
+      localStorage.setItem('nzadev_sfx', state.sfxEnabled);
+      dom.soundIcon.textContent = state.sfxEnabled ? '🔊' : '🔇';
+      if (state.sfxEnabled) playSfx(550, 'sine', 0.05);
+    });
+  }
+
+  if (dom.btnSpotlightLaunch) {
+    dom.btnSpotlightLaunch.addEventListener('click', () => {
+      const cur = APPS_LIST[state.spotlightIdx];
+      if (cur) {
+        playSfx(580, 'sine', 0.04);
+        openViewer(cur.id);
+      }
+    });
+  }
+
   window.addEventListener('hashchange', checkHash);
 }
 
@@ -564,11 +671,22 @@ function initPwa() {
 }
 
 function init() {
+  if (dom.soundIcon) {
+    dom.soundIcon.textContent = state.sfxEnabled ? '🔊' : '🔇';
+  }
+  updateSpotlight(0);
   renderGrid();
   renderPinnedBar();
   attachEvents();
   initPwa();
   checkHash();
+
+  setInterval(() => {
+    if (!document.hidden && !dom.viewerModal.classList.contains('active')) {
+      state.spotlightIdx = (state.spotlightIdx + 1) % APPS_LIST.length;
+      updateSpotlight(state.spotlightIdx);
+    }
+  }, 9000);
 }
 
 document.addEventListener('DOMContentLoaded', init);
