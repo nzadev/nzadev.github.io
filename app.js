@@ -1,515 +1,537 @@
-const APPS_DATA = [
+const ARCADE_DATA = [
   {
     id: 'cyber-colony',
     title: 'Protocol Zero',
     subtitle: 'Cyberpunk Defense & Survival Game',
     category: 'game',
-    categoryLabel: 'Games & Play',
-    description: 'Game aksi bertahan hidup futuristik dengan canvas rendering, audio efek dinamis, changelog langsung, dan prototype APK download.',
+    categoryLabel: 'Arcade Survival',
+    tagIcon: '🎮',
+    description: 'Game aksi bertahan hidup futuristik dengan canvas rendering berkecepatan tinggi, efek audio dinamis, dan sistem update changelog langsung.',
     liveUrl: 'https://nzadev.github.io/cyber-colony/',
     repoUrl: 'https://github.com/nzadev/cyber-colony',
-    isLive: true,
     accent: '#00f0ff',
-    tech: ['HTML5 Canvas', 'Web Audio API', 'Cyberpunk UI', 'JS Native'],
+    glow: 'rgba(0, 240, 255, 0.35)',
+    cardBg: '#080d19',
+    screenBg: 'linear-gradient(135deg, #071524 0%, #02070e 100%)',
+    screenText: '> PROTOCOL_ZERO // CANVAS RUNNER\n[STATUS: INVASION ACTIVE] 04:22\nDEFENSE GRID: 100% ONLINE',
+    tech: ['HTML5 Canvas', 'Web Audio API', 'Cyberpunk HUD', 'JS Native'],
     features: [
-      'Interactive Canvas Game Rendering',
-      'Atmospheric Audio & Sound Effects',
-      'Downloadable Android Prototype APK',
-      'Live Changelog & Update Feed'
-    ],
-    iconSvg: `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m14 12-4-4v8z"/><circle cx="12" cy="12" r="3"/></svg>`
+      'Canvas Action Gameplay Langsung di Browser',
+      'Atmospheric Cyber Audio & SFX Dinamis',
+      'Prototype APK Android Siap Unduh',
+      'Live Changelog & Update Feed Terintegrasi'
+    ]
   },
   {
     id: 'airpad',
     title: 'AirPad Controller',
     subtitle: 'Virtual Gamepad via WebSocket',
     category: 'game',
-    categoryLabel: 'Game Utility',
-    description: 'Mengubah smartphone menjadi controller PC nirkabel ultra-low latency. Dilengkapi QR Code scanner, D-Pad, Dual Analog Stick, Haptic Feedback, dan Red Turbo mode.',
+    categoryLabel: 'Hardware Bridge',
+    tagIcon: '🕹️',
+    description: 'Mengubah smartphone menjadi controller PC nirkabel ultra-low latency. Dilengkapi QR Code camera pairing, D-Pad, Dual Analog Stick, dan Red Turbo mode.',
     liveUrl: 'https://nzadev.github.io/airpad/',
     repoUrl: 'https://github.com/nzadev/airpad',
-    isLive: true,
     accent: '#ff2a5f',
+    glow: 'rgba(255, 42, 95, 0.35)',
+    cardBg: '#13090e',
+    screenBg: 'linear-gradient(135deg, #240810 0%, #0b0204 100%)',
+    screenText: '[BRIDGE: 192.168.1.100:8765]\nLATENCY: 1.4ms // D-PAD: DUAL ANALOG\nTURBO RED: PERSISTENT ON',
     tech: ['WebSocket', 'Virtual Gamepad', 'Haptic Touch', 'PWA Ready'],
     features: [
-      'Pairing Cepat via Kamera QR Scanner',
-      'Dual Analog Stick & Turbo Button',
-      'Haptic Vibration Feedback Responsif',
-      'Red Turbo Mode Persistence'
-    ],
-    iconSvg: `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="10" r="1"/><circle cx="18" cy="12" r="1"/><circle cx="16" cy="14" r="1"/><circle cx="14" cy="12" r="1"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/></svg>`
+      'Pairing Seketika via Kamera QR Scanner',
+      'Dual Analog Stick & Turbo Buttons Responsif',
+      'Haptic Touch Vibration Feedback',
+      'Red Turbo Mode State Persistence'
+    ]
   },
   {
     id: 'nexus-pos',
     title: 'NexusPOS',
     subtitle: 'Sistem Kasir Modern Retail & F&B',
     category: 'business',
-    categoryLabel: 'Kasir & POS',
-    description: 'Aplikasi Point of Sale (POS) cepat berbasis native web. Manajemen katalog retail & cafe, custom modifier pesanan (ice, sugar, size), cetak struk thermal 58/80mm, dan rekap keuangan.',
+    categoryLabel: 'Smart POS & Cafe',
+    tagIcon: '💼',
+    description: 'Aplikasi Point of Sale (POS) cepat berbasis native web. Manajemen katalog produk ritel & cafe, custom order modifier (ice, sugar, size), dan cetak struk thermal.',
     liveUrl: 'https://nzadev.github.io/nexus-pos/',
     repoUrl: 'https://github.com/nzadev/nexus-pos',
-    isLive: true,
     accent: '#10b981',
+    glow: 'rgba(16, 185, 129, 0.35)',
+    cardBg: '#071510',
+    screenBg: 'linear-gradient(135deg, #092015 0%, #030d08 100%)',
+    screenText: 'NEXUS CAFE // ORDER #1042\n1x Iced Latte [Normal Ice/Less Sugar]\nTOTAL: Rp 32.000 [STRUK TERCETAK]',
     tech: ['Vanilla JS', 'Thermal Printing', 'IndexedDB', 'Responsive POS'],
     features: [
-      'Multi-Category Retail & Cafe Order',
-      'Custom Modifier (Ice Level, Sugar, Size)',
-      'Simulasi & Cetak Struk Thermal',
-      'Export Rekap Omzet Laba Rugi'
-    ],
-    iconSvg: `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><circle cx="7" cy="8" r="1"/><circle cx="12" cy="8" r="1"/><circle cx="17" cy="8" r="1"/></svg>`
+      'Katalog Retail & Custom Minuman F&B',
+      'Custom Modifier (Ice, Sugar Level, Size)',
+      'Simulasi & Cetak Struk Thermal 58/80mm',
+      'Export Rekap Omzet & Laporan Penjualan'
+    ]
   },
   {
     id: 'netdesk-tkj',
     title: 'NetDesk TKJ',
     subtitle: 'IT Helpdesk & Network Infrastructure Suite',
     category: 'network',
-    categoryLabel: 'Jaringan & IT',
-    description: 'Sistem terpadu manajemen infrastruktur lab TKJ dan kantor. Dilengkapi Subnet Calculator visual (CIDR/VLSM), Interactive Topology Map, inventaris perangkat keras, dan tiket troubleshooting.',
+    categoryLabel: 'Network Lab Ops',
+    tagIcon: '🌐',
+    description: 'Dashboard manajemen infrastruktur jaringan lab TKJ dan kantor. Dilengkapi Subnet Calculator visual (CIDR/VLSM), Interactive Topology Map, dan trouble ticketing.',
     liveUrl: 'https://nzadev.github.io/netdesk-tkj/',
     repoUrl: 'https://github.com/nzadev/netdesk-tkj',
-    isLive: true,
-    accent: '#6366f1',
+    accent: '#38bdf8',
+    glow: 'rgba(56, 189, 248, 0.35)',
+    cardBg: '#08121f',
+    screenBg: 'linear-gradient(135deg, #0b1f33 0%, #040d17 100%)',
+    screenText: '$ ping 192.168.10.1 -c 3\n64 bytes from 192.168.10.1: time=0.9ms\n[TOPOLOGY: 8 SWITCHES ONLINE]',
     tech: ['CIDR Subnetting', 'Interactive Topology', 'IT Ticketing', 'Local Storage'],
     features: [
-      'Subnet Calculator IP / CIDR / VLSM',
-      'Visual Network Topology Map',
-      'Manajemen Inventaris Rack & Hardware',
-      'Kanban Board Trouble Ticket'
-    ],
-    iconSvg: `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/><line x1="12" y1="10" x2="12" y2="14"/></svg>`
+      'Subnet Calculator IP / CIDR / VLSM Visual',
+      'Visual Network Topology Map Interaktif',
+      'Inventaris Hardware Rack & Perangkat Lab',
+      'Kanban Board Pelacakan Trouble Ticket'
+    ]
   },
   {
     id: 'kas-tkj1',
     title: 'KAS-TKJ1',
     subtitle: 'Buku Kas & Monitoring Iuran XII TKJ 1',
     category: 'education',
-    categoryLabel: 'Kas & Edukasi',
-    description: 'Buku kas digital transparan untuk kelas XII TKJ 1 SMK Kartika X-1. Monitoring iuran mingguan siswa, rekap status tunggakan otomatis, pencatatan transaksi masuk/keluar, dan backup/restore JSON.',
+    categoryLabel: 'Finance & Ledger',
+    tagIcon: '📊',
+    description: 'Buku kas digital transparan untuk kelas XII TKJ 1 SMK Kartika X-1. Monitoring iuran mingguan 36 siswa, kalkulasi tunggakan otomatis, dan backup data JSON.',
     liveUrl: 'https://nzadev.github.io/kas-tkj1/',
     repoUrl: 'https://github.com/nzadev/kas-tkj1',
-    isLive: true,
-    accent: '#3b82f6',
+    accent: '#eab308',
+    glow: 'rgba(234, 179, 8, 0.35)',
+    cardBg: '#171407',
+    screenBg: 'linear-gradient(135deg, #241e0a 0%, #0d0a02 100%)',
+    screenText: 'SMK KARTIKA X-1 // KELAS XII TKJ 1\nSTATUS: 36 SISWA TERDATA LENGKAP\nREKAP TUNGGAKAN: OTOMATIS AKTIF',
     tech: ['Ledger Engine', 'Student Tracker', 'Financial Charts', 'PWA Ready'],
     features: [
-      'Monitoring Pembayaran 36 Siswa',
+      'Rekap Pembayaran & Kehadiran 36 Siswa',
       'Perhitungan Otomatis Tunggakan Kas',
-      'Laporan Arus Kas Masuk & Pengeluaran',
-      'Export & Import Backup Data JSON'
-    ],
-    iconSvg: `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="13" y2="11"/></svg>`
+      'Arus Kas Masuk & Pengeluaran Terperinci',
+      'Fitur Cadangkan & Pulihkan Database JSON'
+    ]
   },
   {
     id: 'pure-pdf',
     title: 'Pure PDF',
     subtitle: 'Client-Side Privacy-First PDF Toolkit',
     category: 'utility',
-    categoryLabel: 'Tools & Utility',
-    description: 'Pemrosesan dokumen PDF tanpa kirim data ke server luar. Dibangun dengan Expo React Native Web untuk performa ringan dan perlindungan privasi penuh langsung di peramban.',
+    categoryLabel: 'Client Utility',
+    tagIcon: '⚡',
+    description: 'Aplikasi manipulasi dan pembaca dokumen PDF tanpa pernah mengunggah data ke server luar. Dibangun dengan Expo React Native Web untuk privasi mutlak.',
     liveUrl: 'https://nzadev.github.io/pure-pdf/',
     repoUrl: 'https://github.com/nzadev/pure-pdf',
-    isLive: true,
-    accent: '#f59e0b',
+    accent: '#f97316',
+    glow: 'rgba(249, 115, 22, 0.35)',
+    cardBg: '#180d07',
+    screenBg: 'linear-gradient(135deg, #28150a 0%, #0d0502 100%)',
+    screenText: '[DOC: ENGINE READY]\n100% PRIVATE CLIENT-SIDE PROCESSING\nZERO SERVER UPLOAD GUARANTEE',
     tech: ['Expo React Native', 'Web PDF Engine', 'Zero Server Upload', 'Privacy First'],
     features: [
-      '100% Pemrosesan Lokal di Browser',
-      'Privasi Terjamin Tanpa Upload Cloud',
-      'Cross-Platform Web Architecture',
-      'Antarmuka Bersih & Responsif'
-    ],
-    iconSvg: `<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`
+      '100% Pemrosesan Dokumen di Peramban Lokal',
+      'Privasi Penuh Tanpa Unggah ke Server Cloud',
+      'Arsitektur Expo React Native Web Ringan',
+      'Antarmuka Pengguna Bersih & Fokus'
+    ]
   }
 ];
 
 const state = {
-  activeCategory: 'all',
+  activeCat: 'all',
   searchQuery: '',
   isListView: false,
+  spotlightIdx: 0,
+  sfxEnabled: localStorage.getItem('nzadev_sfx_enabled') !== 'false',
   pinnedIds: JSON.parse(localStorage.getItem('nzadev_pinned_apps') || '[]'),
-  activeRunnerApp: null,
-  paletteSelectedIndex: 0,
-  paletteFilteredApps: []
+  activeTheaterApp: null,
+  paletteFiltered: [],
+  paletteSelectedIdx: 0
 };
 
 const dom = {
-  catalogGrid: document.getElementById('catalog-grid'),
-  emptyState: document.getElementById('empty-state'),
-  resultCount: document.getElementById('result-count'),
-  filterTabs: document.getElementById('filter-tabs'),
-  inlineSearchInput: document.getElementById('inline-search-input'),
-  btnClearSearch: document.getElementById('btn-clear-search'),
-  btnResetFilters: document.getElementById('btn-reset-filters'),
-  btnViewToggle: document.getElementById('btn-view-toggle'),
-  pinnedBarWrapper: document.getElementById('pinned-bar-wrapper'),
-  pinnedBarItems: document.getElementById('pinned-bar-items'),
-  btnClearPinned: document.getElementById('btn-clear-pinned'),
-  searchTrigger: document.getElementById('search-trigger'),
-  paletteModal: document.getElementById('palette-modal'),
-  paletteBackdrop: document.getElementById('palette-backdrop'),
-  paletteInput: document.getElementById('palette-input'),
-  paletteResults: document.getElementById('palette-results'),
-  paletteCount: document.getElementById('palette-count'),
-  runnerModal: document.getElementById('runner-modal'),
-  runnerBackdrop: document.getElementById('runner-backdrop'),
-  runnerContainer: document.querySelector('.runner-container'),
-  runnerIconWrapper: document.getElementById('runner-icon-wrapper'),
-  runnerTitle: document.getElementById('runner-title'),
-  runnerCategory: document.getElementById('runner-category'),
-  runnerUrl: document.getElementById('runner-url'),
-  runnerIframe: document.getElementById('runner-iframe'),
-  runnerLoader: document.getElementById('runner-loader'),
-  btnRunnerReload: document.getElementById('btn-runner-reload'),
-  btnRunnerNewtab: document.getElementById('btn-runner-newtab'),
-  btnRunnerRepo: document.getElementById('btn-runner-repo'),
-  btnRunnerFullscreen: document.getElementById('btn-runner-fullscreen'),
-  btnRunnerClose: document.getElementById('btn-runner-close'),
-  btnInstallPwa: document.getElementById('btn-install-pwa'),
-  ambientCanvas: document.getElementById('ambient-canvas')
+  arcadeGrid: document.getElementById('arcade-grid'),
+  emptyDeck: document.getElementById('empty-deck'),
+  categoryDock: document.getElementById('category-dock'),
+  deckSearchInput: document.getElementById('deck-search-input'),
+  btnClearDeckSearch: document.getElementById('btn-clear-deck-search'),
+  btnResetSearch: document.getElementById('btn-reset-search'),
+  btnModeGrid: document.getElementById('btn-mode-grid'),
+  btnModeList: document.getElementById('btn-mode-list'),
+  pinnedSection: document.getElementById('pinned-section'),
+  pinnedChipsRow: document.getElementById('pinned-chips-row'),
+  btnResetPin: document.getElementById('btn-reset-pin'),
+  marqueeTitle: document.getElementById('marquee-title'),
+  marqueeDesc: document.getElementById('marquee-desc'),
+  marqueeTagLabel: document.getElementById('marquee-tag-label'),
+  marqueeTechRow: document.getElementById('marquee-tech-row'),
+  btnPlaySpotlight: document.getElementById('btn-play-spotlight'),
+  btnNewtabSpotlight: document.getElementById('btn-newtab-spotlight'),
+  quickNavDots: document.getElementById('quick-nav-dots'),
+  marqueePreviewScreen: document.getElementById('marquee-preview-screen'),
+  marqueeSpotlight: document.getElementById('marquee-spotlight'),
+  clockDisplay: document.getElementById('clock-display'),
+  btnSoundToggle: document.getElementById('btn-sound-toggle'),
+  soundIcon: document.getElementById('sound-icon'),
+  btnSearchTrigger: document.getElementById('btn-search-trigger'),
+  spotlightModal: document.getElementById('spotlight-modal'),
+  spotlightBackdrop: document.getElementById('spotlight-backdrop'),
+  spotlightInput: document.getElementById('spotlight-input'),
+  spotlightList: document.getElementById('spotlight-list'),
+  spotlightCounter: document.getElementById('spotlight-counter'),
+  theaterModal: document.getElementById('theater-modal'),
+  theaterBackdrop: document.getElementById('theater-backdrop'),
+  theaterWindow: document.querySelector('.theater-window'),
+  theaterAppBadge: document.getElementById('theater-app-badge'),
+  theaterName: document.getElementById('theater-name'),
+  theaterUrl: document.getElementById('theater-url'),
+  theaterIframe: document.getElementById('theater-iframe'),
+  theaterLoading: document.getElementById('theater-loading'),
+  btnThReload: document.getElementById('btn-th-reload'),
+  btnThNewtab: document.getElementById('btn-th-newtab'),
+  btnThRepo: document.getElementById('btn-th-repo'),
+  btnThFullscreen: document.getElementById('btn-th-fullscreen'),
+  btnThClose: document.getElementById('btn-th-close'),
+  btnInstallApp: document.getElementById('btn-install-app')
 };
 
-function getFilteredApps() {
-  return APPS_DATA.filter((app) => {
-    const matchesCategory = state.activeCategory === 'all' || app.category === state.activeCategory;
-    if (!matchesCategory) return false;
+let audioCtx = null;
+function playSound(freq = 440, type = 'sine', duration = 0.04) {
+  if (!state.sfxEnabled) return;
+  try {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+    gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.start();
+    osc.stop(audioCtx.currentTime + duration);
+  } catch (err) {}
+}
 
-    if (!state.searchQuery.trim()) return true;
-    const q = state.searchQuery.toLowerCase();
-    const matchTitle = app.title.toLowerCase().includes(q);
-    const matchSub = app.subtitle.toLowerCase().includes(q);
-    const matchDesc = app.description.toLowerCase().includes(q);
-    const matchTech = app.tech.some(t => t.toLowerCase().includes(q));
-    const matchFeat = app.features.some(f => f.toLowerCase().includes(q));
+function updateClock() {
+  const now = new Date();
+  const h = String(now.getHours()).padStart(2, '0');
+  const m = String(now.getMinutes()).padStart(2, '0');
+  const s = String(now.getSeconds()).padStart(2, '0');
+  dom.clockDisplay.textContent = `${h}:${m}:${s} WIB`;
+}
 
-    return matchTitle || matchSub || matchDesc || matchTech || matchFeat;
+function updateSpotlight(index) {
+  state.spotlightIdx = index % ARCADE_DATA.length;
+  const app = ARCADE_DATA[state.spotlightIdx];
+
+  dom.marqueeTitle.textContent = app.title;
+  dom.marqueeDesc.textContent = app.description;
+  dom.marqueeTagLabel.textContent = `${app.tagIcon} ${app.categoryLabel.toUpperCase()} • SPOTLIGHT`;
+  dom.marqueeSpotlight.style.setProperty('--marquee-accent', app.accent);
+
+  dom.marqueeTechRow.innerHTML = app.tech.map(t => `<span class="mq-chip">${escapeHtml(t)}</span>`).join('');
+  dom.btnNewtabSpotlight.href = app.liveUrl;
+
+  dom.marqueePreviewScreen.style.background = app.screenBg;
+  dom.marqueePreviewScreen.style.borderColor = app.accent;
+  dom.marqueePreviewScreen.innerHTML = `
+    <div style="padding: 1rem; font-family: var(--font-mono); font-size: 0.8rem; color: ${app.accent}; white-space: pre-wrap; line-height: 1.6;">${escapeHtml(app.screenText)}</div>
+  `;
+
+  renderSpotlightDots();
+}
+
+function renderSpotlightDots() {
+  dom.quickNavDots.innerHTML = '';
+  ARCADE_DATA.forEach((app, idx) => {
+    const dot = document.createElement('div');
+    dot.className = `nav-dot ${idx === state.spotlightIdx ? 'active' : ''}`;
+    dot.title = app.title;
+    dot.addEventListener('click', () => {
+      playSound(520, 'triangle', 0.03);
+      updateSpotlight(idx);
+    });
+    dom.quickNavDots.appendChild(dot);
   });
 }
 
-function renderCatalog() {
-  const filtered = getFilteredApps();
-  dom.catalogGrid.innerHTML = '';
+function getFilteredData() {
+  return ARCADE_DATA.filter(app => {
+    const matchCat = state.activeCat === 'all' || app.category === state.activeCat;
+    if (!matchCat) return false;
+
+    if (!state.searchQuery.trim()) return true;
+    const q = state.searchQuery.toLowerCase();
+    return app.title.toLowerCase().includes(q) ||
+           app.subtitle.toLowerCase().includes(q) ||
+           app.description.toLowerCase().includes(q) ||
+           app.categoryLabel.toLowerCase().includes(q) ||
+           app.tech.some(t => t.toLowerCase().includes(q)) ||
+           app.features.some(f => f.toLowerCase().includes(q));
+  });
+}
+
+function renderGrid() {
+  const filtered = getFilteredData();
+  dom.arcadeGrid.innerHTML = '';
 
   if (filtered.length === 0) {
-    dom.catalogGrid.classList.add('hidden');
-    dom.emptyState.classList.remove('hidden');
-    dom.resultCount.textContent = '0 proyek ditemukan';
+    dom.arcadeGrid.classList.add('hidden');
+    dom.emptyDeck.classList.remove('hidden');
     return;
   }
 
-  dom.catalogGrid.classList.remove('hidden');
-  dom.emptyState.classList.add('hidden');
-  dom.resultCount.textContent = `Menampilkan ${filtered.length} proyek`;
+  dom.arcadeGrid.classList.remove('hidden');
+  dom.emptyDeck.classList.add('hidden');
 
-  filtered.forEach((app, index) => {
+  filtered.forEach(app => {
     const isPinned = state.pinnedIds.includes(app.id);
     const card = document.createElement('article');
-    card.className = 'app-card';
+    card.className = 'arcade-card';
     card.style.setProperty('--card-accent', app.accent);
-    card.dataset.id = app.id;
+    card.style.setProperty('--card-glow', app.glow);
+    card.style.setProperty('--card-bg', app.cardBg);
+    card.style.setProperty('--card-border', `rgba(${hexToRgb(app.accent)}, 0.3)`);
 
     card.innerHTML = `
-      <div class="card-topbar">
-        <div class="card-icon-group">
-          <div class="card-icon">${app.iconSvg}</div>
-          <div class="card-badge-row">
-            <span class="category-tag">${escapeHtml(app.categoryLabel)}</span>
-            <span class="status-badge live">GitHub Pages</span>
-          </div>
+      <div class="card-mini-screen" style="background: ${app.screenBg};">
+        <div class="screen-badge-row">
+          <span class="screen-cat-tag">${app.tagIcon} ${escapeHtml(app.categoryLabel)}</span>
+          <span class="screen-status-badge">● LIVE GITHUB</span>
         </div>
-        <button type="button" class="card-pin-btn ${isPinned ? 'pinned' : ''}" data-pin-id="${app.id}" title="${isPinned ? 'Lepas Pin' : 'Sematkan ke Favorit'}">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="${isPinned ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-          </svg>
+        <div class="screen-visual-deco" style="color: ${app.accent}; white-space: pre-wrap; font-size: 0.75rem;">${escapeHtml(app.screenText)}</div>
+      </div>
+
+      <div class="card-main-header">
+        <div class="card-title-wrap">
+          <h3>${escapeHtml(app.title)}</h3>
+          <div class="card-subline">${escapeHtml(app.subtitle)}</div>
+        </div>
+        <button type="button" class="card-pin-toggle ${isPinned ? 'pinned' : ''}" data-pin-id="${app.id}" title="${isPinned ? 'Lepas Pin' : 'Sematkan ke Dock'}">
+          ★
         </button>
       </div>
 
-      <div class="card-title-group">
-        <h3 class="card-title">${escapeHtml(app.title)}</h3>
-        <p class="card-subtitle">${escapeHtml(app.subtitle)}</p>
-      </div>
+      <p class="card-description">${escapeHtml(app.description)}</p>
 
-      <p class="card-desc">${escapeHtml(app.description)}</p>
-
-      <ul class="card-features">
+      <ul class="card-feature-list">
         ${app.features.map(f => `
           <li class="card-feature-item">
-            <span class="feature-check">✓</span>
+            <span class="card-feature-bullet">▸</span>
             <span>${escapeHtml(f)}</span>
           </li>
         `).join('')}
       </ul>
 
-      <div class="card-tech-pills">
-        ${app.tech.map(t => `<span class="tech-pill">${escapeHtml(t)}</span>`).join('')}
+      <div class="card-tech-chips">
+        ${app.tech.map(t => `<span class="card-tech-pill">${escapeHtml(t)}</span>`).join('')}
       </div>
 
-      <div class="card-actions">
-        <button type="button" class="btn-launch-primary" data-launch-id="${app.id}">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-          <span>Jalankan di Web</span>
+      <div class="card-bottom-actions">
+        <button type="button" class="btn-launch-arcade" data-launch-id="${app.id}">
+          <span>▶ JALANKAN DI WEB</span>
         </button>
-        <div class="card-sub-actions">
-          <a href="${app.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn-sub-action">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-              <polyline points="15 3 21 3 21 9"></polyline>
-              <line x1="10" y1="14" x2="21" y2="3"></line>
-            </svg>
-            <span>Tab Baru</span>
+        <div class="card-secondary-links">
+          <a href="${app.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn-ext-link">
+            <span>Tab Baru ↗</span>
           </a>
-          <a href="${app.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn-sub-action">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-            </svg>
-            <span>Source</span>
+          <a href="${app.repoUrl}" target="_blank" rel="noopener noreferrer" class="btn-ext-link">
+            <span>Source Code 🐙</span>
           </a>
         </div>
       </div>
     `;
 
-    dom.catalogGrid.appendChild(card);
+    dom.arcadeGrid.appendChild(card);
   });
 }
 
-function renderPinnedBar() {
+function renderPinnedSection() {
   if (state.pinnedIds.length === 0) {
-    dom.pinnedBarWrapper.classList.add('hidden');
+    dom.pinnedSection.classList.add('hidden');
     return;
   }
 
-  dom.pinnedBarWrapper.classList.remove('hidden');
-  dom.pinnedBarItems.innerHTML = '';
+  dom.pinnedSection.classList.remove('hidden');
+  dom.pinnedChipsRow.innerHTML = '';
 
-  state.pinnedIds.forEach((id) => {
-    const app = APPS_DATA.find(a => a.id === id);
+  state.pinnedIds.forEach(id => {
+    const app = ARCADE_DATA.find(a => a.id === id);
     if (!app) return;
 
-    const chip = document.createElement('button');
-    chip.type = 'button';
-    chip.className = 'pinned-chip';
-    chip.dataset.launchId = app.id;
-    chip.innerHTML = `
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'pinned-btn';
+    btn.dataset.launchId = app.id;
+    btn.style.borderColor = app.accent;
+    btn.innerHTML = `
       <span style="color: ${app.accent}">●</span>
       <span>${escapeHtml(app.title)}</span>
     `;
-    dom.pinnedBarItems.appendChild(chip);
+    dom.pinnedChipsRow.appendChild(btn);
   });
 }
 
 function togglePin(id) {
+  playSound(600, 'square', 0.03);
   if (state.pinnedIds.includes(id)) {
-    state.pinnedIds = state.pinnedIds.filter(item => item !== id);
+    state.pinnedIds = state.pinnedIds.filter(i => i !== id);
   } else {
     state.pinnedIds.push(id);
   }
   localStorage.setItem('nzadev_pinned_apps', JSON.stringify(state.pinnedIds));
-  renderPinnedBar();
-  renderCatalog();
+  renderPinnedSection();
+  renderGrid();
 }
 
-function openRunner(appId) {
-  const app = APPS_DATA.find(a => a.id === appId);
+function openTheater(appId) {
+  const app = ARCADE_DATA.find(a => a.id === appId);
   if (!app) return;
 
-  state.activeRunnerApp = app;
+  playSound(660, 'sine', 0.06);
+  setTimeout(() => playSound(880, 'sine', 0.08), 50);
 
-  dom.runnerTitle.textContent = app.title;
-  dom.runnerCategory.textContent = app.categoryLabel;
-  dom.runnerCategory.style.color = app.accent;
-  dom.runnerUrl.textContent = app.liveUrl;
-  dom.runnerIconWrapper.innerHTML = app.iconSvg;
-  dom.runnerIconWrapper.style.color = app.accent;
+  state.activeTheaterApp = app;
 
-  dom.btnRunnerNewtab.href = app.liveUrl;
-  dom.btnRunnerRepo.href = app.repoUrl;
+  dom.theaterName.textContent = app.title;
+  dom.theaterUrl.textContent = app.liveUrl;
+  dom.theaterAppBadge.textContent = app.categoryLabel.toUpperCase();
+  dom.theaterAppBadge.style.color = app.accent;
+  dom.theaterAppBadge.style.borderColor = app.accent;
 
-  dom.runnerLoader.classList.remove('hidden');
-  dom.runnerIframe.src = app.liveUrl;
+  dom.btnThNewtab.href = app.liveUrl;
+  dom.btnThRepo.href = app.repoUrl;
 
-  dom.runnerIframe.onload = () => {
-    dom.runnerLoader.classList.add('hidden');
+  dom.theaterLoading.classList.remove('hidden');
+  dom.theaterIframe.src = app.liveUrl;
+
+  dom.theaterIframe.onload = () => {
+    dom.theaterLoading.classList.add('hidden');
   };
 
-  dom.runnerModal.classList.add('active');
-  dom.runnerModal.setAttribute('aria-hidden', 'false');
+  dom.theaterModal.classList.add('active');
+  dom.theaterModal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 
   window.location.hash = `app=${app.id}`;
 }
 
-function closeRunner() {
-  dom.runnerModal.classList.remove('active');
-  dom.runnerModal.setAttribute('aria-hidden', 'true');
-  dom.runnerIframe.src = 'about:blank';
-  state.activeRunnerApp = null;
+function closeTheater() {
+  playSound(320, 'sine', 0.04);
+  dom.theaterModal.classList.remove('active');
+  dom.theaterModal.setAttribute('aria-hidden', 'true');
+  dom.theaterIframe.src = 'about:blank';
+  state.activeTheaterApp = null;
   document.body.style.overflow = '';
   if (window.location.hash.startsWith('#app=')) {
     history.replaceState(null, '', window.location.pathname);
   }
 }
 
-function reloadRunner() {
-  if (!state.activeRunnerApp) return;
-  dom.runnerLoader.classList.remove('hidden');
-  dom.runnerIframe.src = state.activeRunnerApp.liveUrl;
+function reloadTheater() {
+  if (!state.activeTheaterApp) return;
+  playSound(480, 'triangle', 0.04);
+  dom.theaterLoading.classList.remove('hidden');
+  dom.theaterIframe.src = state.activeTheaterApp.liveUrl;
 }
 
-function toggleRunnerFullscreen() {
-  dom.runnerContainer.classList.toggle('fullscreen');
+function toggleTheaterFullscreen() {
+  playSound(500, 'triangle', 0.04);
+  dom.theaterWindow.classList.toggle('fullscreen');
 }
 
-function openPalette() {
-  dom.paletteModal.classList.add('active');
-  dom.paletteModal.setAttribute('aria-hidden', 'false');
-  dom.paletteInput.value = '';
-  state.paletteSelectedIndex = 0;
-  filterPalette('');
-  setTimeout(() => dom.paletteInput.focus(), 50);
+function openSpotlight() {
+  playSound(540, 'triangle', 0.04);
+  dom.spotlightModal.classList.add('active');
+  dom.spotlightModal.setAttribute('aria-hidden', 'false');
+  dom.spotlightInput.value = '';
+  filterSpotlight('');
+  setTimeout(() => dom.spotlightInput.focus(), 50);
 }
 
-function closePalette() {
-  dom.paletteModal.classList.remove('active');
-  dom.paletteModal.setAttribute('aria-hidden', 'true');
+function closeSpotlight() {
+  dom.spotlightModal.classList.remove('active');
+  dom.spotlightModal.setAttribute('aria-hidden', 'true');
 }
 
-function filterPalette(query) {
-  const q = query.trim().toLowerCase();
-  state.paletteFilteredApps = APPS_DATA.filter((app) => {
-    if (!q) return true;
-    return app.title.toLowerCase().includes(q) ||
-           app.subtitle.toLowerCase().includes(q) ||
-           app.description.toLowerCase().includes(q) ||
-           app.categoryLabel.toLowerCase().includes(q) ||
-           app.tech.some(t => t.toLowerCase().includes(q));
+function filterSpotlight(q) {
+  const query = q.trim().toLowerCase();
+  state.paletteFiltered = ARCADE_DATA.filter(app => {
+    if (!query) return true;
+    return app.title.toLowerCase().includes(query) ||
+           app.subtitle.toLowerCase().includes(query) ||
+           app.description.toLowerCase().includes(query) ||
+           app.categoryLabel.toLowerCase().includes(query) ||
+           app.tech.some(t => t.toLowerCase().includes(query));
   });
 
-  state.paletteSelectedIndex = 0;
-  renderPaletteResults();
+  state.paletteSelectedIdx = 0;
+  renderSpotlightRows();
 }
 
-function renderPaletteResults() {
-  dom.paletteResults.innerHTML = '';
-  dom.paletteCount.textContent = `${state.paletteFilteredApps.length} Proyek`;
+function renderSpotlightRows() {
+  dom.spotlightList.innerHTML = '';
+  dom.spotlightCounter.textContent = `${state.paletteFiltered.length} Aplikasi`;
 
-  if (state.paletteFilteredApps.length === 0) {
-    dom.paletteResults.innerHTML = `
-      <div style="padding: 1.5rem; text-align: center; color: var(--text-dim); font-size: 0.9rem;">
-        Tidak ada aplikasi yang cocok dengan kata kunci
+  if (state.paletteFiltered.length === 0) {
+    dom.spotlightList.innerHTML = `
+      <div style="padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+        Tidak ada aplikasi yang cocok
       </div>
     `;
     return;
   }
 
-  state.paletteFilteredApps.forEach((app, idx) => {
-    const item = document.createElement('div');
-    item.className = `palette-item ${idx === state.paletteSelectedIndex ? 'selected' : ''}`;
-    item.style.setProperty('--palette-accent', app.accent);
-    item.dataset.appId = app.id;
-
-    item.innerHTML = `
-      <div class="palette-item-left">
-        <div class="palette-item-icon">${app.iconSvg}</div>
-        <div class="palette-item-titles">
-          <div class="palette-item-name">${escapeHtml(app.title)}</div>
-          <div class="palette-item-sub">${escapeHtml(app.subtitle)}</div>
-        </div>
+  state.paletteFiltered.forEach((app, idx) => {
+    const row = document.createElement('div');
+    row.className = `spotlight-row ${idx === state.paletteSelectedIdx ? 'selected' : ''}`;
+    row.style.setProperty('--sp-accent', app.accent);
+    row.innerHTML = `
+      <div>
+        <div class="sp-title">${escapeHtml(app.title)}</div>
+        <div class="sp-sub">${escapeHtml(app.subtitle)}</div>
       </div>
-      <div class="palette-item-right">
-        <span class="palette-category-badge">${escapeHtml(app.categoryLabel)}</span>
-      </div>
+      <div class="sp-badge">${app.tagIcon} ${escapeHtml(app.categoryLabel)}</div>
     `;
 
-    item.addEventListener('click', () => {
-      closePalette();
-      openRunner(app.id);
+    row.addEventListener('click', () => {
+      closeSpotlight();
+      openTheater(app.id);
     });
 
-    dom.paletteResults.appendChild(item);
+    dom.spotlightList.appendChild(row);
   });
 }
 
-function updatePaletteSelection() {
-  const items = dom.paletteResults.querySelectorAll('.palette-item');
-  items.forEach((item, idx) => {
-    item.classList.toggle('selected', idx === state.paletteSelectedIndex);
-    if (idx === state.paletteSelectedIndex) {
-      item.scrollIntoView({ block: 'nearest' });
+function updateSpotlightSelection() {
+  const rows = dom.spotlightList.querySelectorAll('.spotlight-row');
+  rows.forEach((r, idx) => {
+    r.classList.toggle('selected', idx === state.paletteSelectedIdx);
+    if (idx === state.paletteSelectedIdx) {
+      r.scrollIntoView({ block: 'nearest' });
     }
   });
 }
 
-function initAmbientCanvas() {
-  const canvas = dom.ambientCanvas;
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let width = canvas.width = window.innerWidth;
-  let height = canvas.height = window.innerHeight;
-
-  const particles = [];
-  const count = Math.min(35, Math.floor(width / 35));
-
-  for (let i = 0; i < count; i++) {
-    particles.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      radius: Math.random() * 2 + 1,
-      color: i % 2 === 0 ? 'rgba(0, 240, 255, ' : 'rgba(99, 102, 241, '
-    });
+function hexToRgb(hex) {
+  const c = hex.replace('#', '');
+  if (c.length === 3) {
+    return `${parseInt(c[0]+c[0], 16)}, ${parseInt(c[1]+c[1], 16)}, ${parseInt(c[2]+c[2], 16)}`;
   }
-
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resize);
-
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
-
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
-      p.x += p.vx;
-      p.y += p.vy;
-
-      if (p.x < 0) p.x = width;
-      if (p.x > width) p.x = 0;
-      if (p.y < 0) p.y = height;
-      if (p.y > height) p.y = 0;
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = p.color + '0.5)';
-      ctx.fill();
-
-      for (let j = i + 1; j < particles.length; j++) {
-        const p2 = particles[j];
-        const dx = p.x - p2.x;
-        const dy = p.y - p2.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < 120) {
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 * (1 - dist / 120)})`;
-          ctx.lineWidth = 0.8;
-          ctx.stroke();
-        }
-      }
-    }
-
-    requestAnimationFrame(draw);
-  }
-
-  draw();
+  return `${parseInt(c.substring(0, 2), 16)}, ${parseInt(c.substring(2, 4), 16)}, ${parseInt(c.substring(4, 6), 16)}`;
 }
 
 function escapeHtml(str) {
   if (!str) return '';
-  return str.replace(/[&<>"']/g, (m) => ({
+  return str.replace(/[&<>"']/g, m => ({
     '&': '&amp;',
     '<': '&lt;',
     '>': '&gt;',
@@ -519,54 +541,62 @@ function escapeHtml(str) {
 }
 
 function attachEvents() {
-  dom.filterTabs.addEventListener('click', (e) => {
-    const btn = e.target.closest('.tab-btn');
-    if (!btn) return;
-    dom.filterTabs.querySelectorAll('.tab-btn').forEach(b => {
-      b.classList.remove('active');
-      b.setAttribute('aria-selected', 'false');
-    });
-    btn.classList.add('active');
-    btn.setAttribute('aria-selected', 'true');
-    state.activeCategory = btn.dataset.category;
-    renderCatalog();
+  dom.categoryDock.addEventListener('click', e => {
+    const tab = e.target.closest('.dock-tab');
+    if (!tab) return;
+    playSound(420, 'triangle', 0.03);
+    dom.categoryDock.querySelectorAll('.dock-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    state.activeCat = tab.dataset.cat;
+    renderGrid();
   });
 
-  dom.inlineSearchInput.addEventListener('input', (e) => {
+  dom.deckSearchInput.addEventListener('input', e => {
     state.searchQuery = e.target.value;
-    dom.btnClearSearch.classList.toggle('hidden', !state.searchQuery);
-    renderCatalog();
+    dom.btnClearDeckSearch.classList.toggle('hidden', !state.searchQuery);
+    renderGrid();
   });
 
-  dom.btnClearSearch.addEventListener('click', () => {
-    dom.inlineSearchInput.value = '';
+  dom.btnClearDeckSearch.addEventListener('click', () => {
+    playSound(380, 'sine', 0.03);
+    dom.deckSearchInput.value = '';
     state.searchQuery = '';
-    dom.btnClearSearch.classList.add('hidden');
-    renderCatalog();
+    dom.btnClearDeckSearch.classList.add('hidden');
+    renderGrid();
   });
 
-  dom.btnResetFilters.addEventListener('click', () => {
-    state.activeCategory = 'all';
+  dom.btnResetSearch.addEventListener('click', () => {
+    playSound(380, 'sine', 0.03);
+    state.activeCat = 'all';
     state.searchQuery = '';
-    dom.inlineSearchInput.value = '';
-    dom.btnClearSearch.classList.add('hidden');
-    dom.filterTabs.querySelectorAll('.tab-btn').forEach(b => {
-      const isAll = b.dataset.category === 'all';
-      b.classList.toggle('active', isAll);
-      b.setAttribute('aria-selected', isAll ? 'true' : 'false');
+    dom.deckSearchInput.value = '';
+    dom.btnClearDeckSearch.classList.add('hidden');
+    dom.categoryDock.querySelectorAll('.dock-tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.cat === 'all');
     });
-    renderCatalog();
+    renderGrid();
   });
 
-  dom.btnViewToggle.addEventListener('click', () => {
-    state.isListView = !state.isListView;
-    dom.catalogGrid.classList.toggle('list-view', state.isListView);
+  dom.btnModeGrid.addEventListener('click', () => {
+    playSound(400, 'square', 0.02);
+    state.isListView = false;
+    dom.btnModeGrid.classList.add('active');
+    dom.btnModeList.classList.remove('active');
+    dom.arcadeGrid.classList.remove('list-view');
   });
 
-  document.addEventListener('click', (e) => {
+  dom.btnModeList.addEventListener('click', () => {
+    playSound(400, 'square', 0.02);
+    state.isListView = true;
+    dom.btnModeList.classList.add('active');
+    dom.btnModeGrid.classList.remove('active');
+    dom.arcadeGrid.classList.add('list-view');
+  });
+
+  document.addEventListener('click', e => {
     const launchBtn = e.target.closest('[data-launch-id]');
     if (launchBtn) {
-      openRunner(launchBtn.dataset.launchId);
+      openTheater(launchBtn.dataset.launchId);
       return;
     }
 
@@ -577,91 +607,104 @@ function attachEvents() {
     }
   });
 
-  dom.btnClearPinned.addEventListener('click', () => {
+  dom.btnPlaySpotlight.addEventListener('click', () => {
+    const cur = ARCADE_DATA[state.spotlightIdx];
+    if (cur) openTheater(cur.id);
+  });
+
+  dom.btnResetPin.addEventListener('click', () => {
+    playSound(300, 'sine', 0.04);
     state.pinnedIds = [];
     localStorage.removeItem('nzadev_pinned_apps');
-    renderPinnedBar();
-    renderCatalog();
+    renderPinnedSection();
+    renderGrid();
   });
 
-  dom.searchTrigger.addEventListener('click', openPalette);
-  dom.paletteBackdrop.addEventListener('click', closePalette);
-
-  dom.paletteInput.addEventListener('input', (e) => {
-    filterPalette(e.target.value);
+  dom.btnSoundToggle.addEventListener('click', () => {
+    state.sfxEnabled = !state.sfxEnabled;
+    localStorage.setItem('nzadev_sfx_enabled', state.sfxEnabled);
+    dom.soundIcon.textContent = state.sfxEnabled ? '🔊' : '🔇';
+    dom.btnSoundToggle.querySelector('.btn-text').textContent = state.sfxEnabled ? 'SFX ON' : 'MUTE';
+    if (state.sfxEnabled) playSound(550, 'sine', 0.05);
   });
 
-  dom.paletteInput.addEventListener('keydown', (e) => {
+  dom.btnSearchTrigger.addEventListener('click', openSpotlight);
+  dom.spotlightBackdrop.addEventListener('click', closeSpotlight);
+  dom.spotlightInput.addEventListener('input', e => filterSpotlight(e.target.value));
+
+  dom.spotlightInput.addEventListener('keydown', e => {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
-      if (state.paletteFilteredApps.length > 0) {
-        state.paletteSelectedIndex = (state.paletteSelectedIndex + 1) % state.paletteFilteredApps.length;
-        updatePaletteSelection();
+      if (state.paletteFiltered.length > 0) {
+        playSound(440, 'triangle', 0.02);
+        state.paletteSelectedIdx = (state.paletteSelectedIdx + 1) % state.paletteFiltered.length;
+        updateSpotlightSelection();
       }
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
-      if (state.paletteFilteredApps.length > 0) {
-        state.paletteSelectedIndex = (state.paletteSelectedIndex - 1 + state.paletteFilteredApps.length) % state.paletteFilteredApps.length;
-        updatePaletteSelection();
+      if (state.paletteFiltered.length > 0) {
+        playSound(440, 'triangle', 0.02);
+        state.paletteSelectedIdx = (state.paletteSelectedIdx - 1 + state.paletteFiltered.length) % state.paletteFiltered.length;
+        updateSpotlightSelection();
       }
     } else if (e.key === 'Enter') {
       e.preventDefault();
-      const target = state.paletteFilteredApps[state.paletteSelectedIndex];
+      const target = state.paletteFiltered[state.paletteSelectedIdx];
       if (target) {
-        closePalette();
-        openRunner(target.id);
+        closeSpotlight();
+        openTheater(target.id);
       }
     } else if (e.key === 'Escape') {
-      closePalette();
+      closeSpotlight();
     }
   });
 
-  dom.btnRunnerClose.addEventListener('click', closeRunner);
-  dom.runnerBackdrop.addEventListener('click', closeRunner);
-  dom.btnRunnerReload.addEventListener('click', reloadRunner);
-  dom.btnRunnerFullscreen.addEventListener('click', toggleRunnerFullscreen);
+  dom.btnThClose.addEventListener('click', closeTheater);
+  dom.theaterBackdrop.addEventListener('click', closeTheater);
+  dom.btnThReload.addEventListener('click', reloadTheater);
+  dom.btnThFullscreen.addEventListener('click', toggleTheaterFullscreen);
 
-  window.addEventListener('keydown', (e) => {
+  window.addEventListener('keydown', e => {
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
       e.preventDefault();
-      if (dom.paletteModal.classList.contains('active')) {
-        closePalette();
+      if (dom.spotlightModal.classList.contains('active')) {
+        closeSpotlight();
       } else {
-        openPalette();
+        openSpotlight();
       }
       return;
     }
 
     if (e.key === 'Escape') {
-      if (dom.paletteModal.classList.contains('active')) {
-        closePalette();
-      } else if (dom.runnerModal.classList.contains('active')) {
-        closeRunner();
+      if (dom.spotlightModal.classList.contains('active')) {
+        closeSpotlight();
+      } else if (dom.theaterModal.classList.contains('active')) {
+        closeTheater();
       }
       return;
     }
 
-    if (!dom.paletteModal.classList.contains('active') && !dom.runnerModal.classList.contains('active')) {
-      const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
-      if (activeTag !== 'input' && activeTag !== 'textarea') {
+    if (!dom.spotlightModal.classList.contains('active') && !dom.theaterModal.classList.contains('active')) {
+      const tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+      if (tag !== 'input' && tag !== 'textarea') {
         const num = parseInt(e.key, 10);
-        if (num >= 1 && num <= APPS_DATA.length) {
-          const app = APPS_DATA[num - 1];
-          if (app) openRunner(app.id);
+        if (num >= 1 && num <= ARCADE_DATA.length) {
+          const app = ARCADE_DATA[num - 1];
+          if (app) openTheater(app.id);
         }
       }
     }
   });
 
-  window.addEventListener('hashchange', checkInitialHash);
+  window.addEventListener('hashchange', checkHash);
 }
 
-function checkInitialHash() {
+function checkHash() {
   const hash = window.location.hash;
   if (hash.startsWith('#app=')) {
     const id = hash.replace('#app=', '');
-    if (APPS_DATA.some(a => a.id === id)) {
-      openRunner(id);
+    if (ARCADE_DATA.some(a => a.id === id)) {
+      openTheater(id);
     }
   }
 }
@@ -671,30 +714,40 @@ function initPwa() {
     navigator.serviceWorker.register('./sw.js').catch(() => {});
   }
 
-  let deferredPrompt = null;
-  window.addEventListener('beforeinstallprompt', (e) => {
+  let promptEvent = null;
+  window.addEventListener('beforeinstallprompt', e => {
     e.preventDefault();
-    deferredPrompt = e;
-    dom.btnInstallPwa.classList.remove('hidden');
+    promptEvent = e;
+    dom.btnInstallApp.classList.remove('hidden');
   });
 
-  dom.btnInstallPwa.addEventListener('click', () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then(() => {
-      deferredPrompt = null;
-      dom.btnInstallPwa.classList.add('hidden');
+  dom.btnInstallApp.addEventListener('click', () => {
+    if (!promptEvent) return;
+    promptEvent.prompt();
+    promptEvent.userChoice.then(() => {
+      promptEvent = null;
+      dom.btnInstallApp.classList.add('hidden');
     });
   });
 }
 
 function init() {
-  renderCatalog();
-  renderPinnedBar();
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  updateSpotlight(0);
+  renderGrid();
+  renderPinnedSection();
   attachEvents();
-  initAmbientCanvas();
   initPwa();
-  checkInitialHash();
+  checkHash();
+
+  setInterval(() => {
+    if (!document.hidden && !dom.theaterModal.classList.contains('active')) {
+      state.spotlightIdx = (state.spotlightIdx + 1) % ARCADE_DATA.length;
+      updateSpotlight(state.spotlightIdx);
+    }
+  }, 8000);
 }
 
 document.addEventListener('DOMContentLoaded', init);
