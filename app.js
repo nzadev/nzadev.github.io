@@ -1,5 +1,20 @@
 const APPS_LIST = [
   {
+    id: 'valoria-rpg',
+    title: 'Valoria Chronicles',
+    subtitle: '16-Bit Retro RPG Maker Game',
+    category: 'game',
+    categoryName: 'Tugas Mandiri (Game RPG)',
+    accent: '#f59e0b',
+    artBg: 'linear-gradient(135deg, #2d1804 0%, #090d16 100%)',
+    specBadge: 'Live Webview HTTPS',
+    description: 'Game petualangan 2D RPG klasik bergaya RPG Maker. Dilengkapi multi-map (Desa Eldoria, Hutan Kabut, Katakombe Kuno, Kawah Naga), sistem pertarungan turn-based taktis, sintesis Web Audio chiptune, toko perlengkapan, minigame memancing, dan akun demo penguji resmi.',
+    liveUrl: 'https://nzadev.github.io/valoria-rpg/',
+    repoUrl: 'https://github.com/nzadev/nzadev.github.io/tree/main/valoria-rpg',
+    tech: ['HTML5 Canvas', 'Web Audio API', 'RPG Maker Style', 'Turn-Based Combat', 'Akun Demo: demo_hero / quest2026'],
+    iconSvg: `<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`
+  },
+  {
     id: 'cyber-colony',
     title: 'Protocol Zero',
     subtitle: 'Cyberpunk Defense Game',

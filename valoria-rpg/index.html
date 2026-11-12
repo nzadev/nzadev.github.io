@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#090d16">
+  <meta name="description" content="Valoria Chronicles: Realm of Ancient Crystals - Game Retro 2D RPG Maker Style berbasis Web HTML5 Canvas.">
+  <title>Valoria Chronicles — 16-Bit Web RPG (Tugas Mandiri)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Press+Start+2P&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-wrapper">
+    <!-- Top Verification & School Submission Header -->
+    <header class="submission-header">
+      <div class="brand-group">
+        <span class="game-logo-badge">⚔️ VALORIA</span>
+        <div class="student-meta">
+          <span class="student-name">Nabil Zaenal Assyqin (Nza) — TKJ</span>
+          <span class="submission-tag">Tugas Mandiri • Jalur A (Live Webview HTTPS)</span>
+        </div>
+      </div>
+
+      <div class="header-badges">
+        <span class="pill pill-success" title="Anti-Localhost lolos: Berjalan di domain HTTPS publik">🌐 Anti-Localhost (LIVE)</span>
+        <button type="button" class="pill pill-warning" onclick="document.getElementById('auth-modal').classList.remove('hidden')" title="Buka Kredensial Akun Demo">🔑 Akun Demo</button>
+        <button type="button" class="pill pill-info" onclick="window.gameApp.openRules()" title="Buka Panduan Ujian & PIN 4-Digit">📋 Info Ujian &amp; PIN</button>
+        <button type="button" class="pill pill-sound" id="btn-sound">🔊 Audio: AKTIF</button>
+      </div>
+    </header>
+
+    <!-- Main Game Viewport Frame -->
+    <main class="canvas-container">
+      <canvas id="game-canvas" width="640" height="480"></canvas>
+
+      <!-- HUD Overlay (Exploration Mode) -->
+      <div id="game-hud" class="game-hud">
+        <div class="hud-left">
+          <div class="hud-profile">
+            <span class="hud-hero-icon">🧙</span>
+            <div class="hud-name-lvl">
+              <span id="hud-player-name" class="hud-name">Arion</span>
+              <span id="hud-player-level" class="hud-level">Lv.1</span>
+            </div>
+          </div>
+
+          <div class="hud-bars">
+            <div class="hud-bar-row">
+              <span class="bar-label">HP</span>
+              <div class="bar-track">
+                <div id="hud-hp-bar" class="bar-fill bar-hp" style="width: 100%;"></div>
+                <span id="hud-hp-text" class="bar-numbers">100/100</span>
+              </div>
+            </div>
+            <div class="hud-bar-row">
+              <span class="bar-label">MP</span>
+              <div class="bar-track">
+                <div id="hud-mp-bar" class="bar-fill bar-mp" style="width: 100%;"></div>
+                <span id="hud-mp-text" class="bar-numbers">40/40</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hud-center">
+          <div id="hud-quest-tracker" class="quest-tracker-pill">
+            📜 Misi: Bicara dengan Tetua Rowan di Desa Eldoria
+          </div>
+        </div>
+
+        <div class="hud-right">
+          <span id="hud-player-gold" class="gold-badge">💰 50 Gold</span>
+          <div class="hud-buttons">
+            <button class="hud-btn" onclick="window.gameApp.openInventory()" title="Buka Inventaris &amp; Zirah (Tab/I)">🎒 Tas</button>
+            <button class="hud-btn" onclick="window.gameApp.openQuests()" title="Lihat Daftar Misi">📜 Misi</button>
+            <button class="hud-btn" onclick="document.getElementById('save-modal').classList.remove('hidden')" title="Simpan / Muat Game">💾 Simpan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Title Screen Overlay -->
+      <div id="title-screen" class="game-overlay title-overlay">
+        <div class="title-content">
+          <div class="title-retro-frame">
+            <h1 class="pixel-title">VALORIA</h1>
+            <h2 class="pixel-subtitle">CHRONICLES OF THE ANCIENT RELIC</h2>
+            <p class="title-tagline">Game Retro 2D RPG Maker Style • 100% Web Native</p>
+          </div>
+
+          <div class="title-menu-buttons">
+            <button class="btn btn-title btn-primary" onclick="window.gameApp.startNewGame()">
+              ⚔️ MULAI PETUALANGAN BARU
+            </button>
+            <button class="btn btn-title" onclick="document.getElementById('auth-modal').classList.remove('hidden')">
+              🔑 LOGIN / AKUN DEMO PENGUJI
+            </button>
+            <button class="btn btn-title" onclick="document.getElementById('save-modal').classList.remove('hidden')">
+              💾 MUAT FILE SIMPANAN (LOAD GAME)
+            </button>
+            <button class="btn btn-title btn-outline" onclick="window.gameApp.openRules()">
+              📖 PANDUAN UJIAN &amp; KEAMANAN PIN
+            </button>
+          </div>
+
+          <div class="title-student-footer">
+            <span>Karya Mandiri Siswa: <strong>Nabil Zaenal Assyqin</strong></span>
+            <span>Rilis Jalur A: Live Webview (HTTPS) • Bebas Localhost</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dialogue Modal (RPG Maker Style Bottom Box) -->
+      <div id="dialogue-modal" class="dialogue-box hidden">
+        <div class="dialogue-avatar-frame">
+          <span id="dialogue-avatar" class="dialogue-avatar">🧙‍♂️</span>
+        </div>
+        <div class="dialogue-body">
+          <div class="dialogue-speaker-row">
+            <span id="dialogue-name" class="speaker-name">Tetua Rowan</span>
+            <span id="dialogue-title" class="speaker-title">Tetua Desa Eldoria</span>
+          </div>
+          <p id="dialogue-text" class="speaker-text">...</p>
+          <div class="dialogue-prompt">Tekan [Spasi] / Sentuh untuk lanjut ▶</div>
+        </div>
+      </div>
+
+      <!-- Turn-Based Battle Screen Overlay -->
+      <div id="battle-screen" class="game-overlay battle-overlay hidden">
+        <!-- Battle Canvas / Dynamic UI -->
+        <div class="battle-ui-panel">
+          <div class="battle-log-card" id="battle-logs">
+            <!-- Dynamically populated combat logs -->
+          </div>
+
+          <div class="battle-actions-card" id="battle-actions">
+            <!-- Dynamically populated action buttons -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Shop Modal -->
+      <div id="shop-modal" class="game-modal hidden">
+        <div class="modal-box shop-box">
+          <div class="modal-header">
+            <h3 id="shop-title">🏪 Toko Desa</h3>
+            <button class="btn-close" onclick="window.gameApp.closeShop()">✕</button>
+          </div>
+          <div class="shop-balance">
+            Uang Anda Saat Ini: <strong id="shop-player-gold" class="gold-text">50</strong> Gold
+          </div>
+          <div id="shop-items-list" class="shop-items-list">
+            <!-- Items loaded via main.js -->
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline" onclick="window.gameApp.closeShop()">Tutup Toko</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inventory & Equipment Modal -->
+      <div id="inventory-modal" class="game-modal hidden">
+        <div class="modal-box inventory-box">
+          <div class="modal-header">
+            <h3>🎒 Perlengkapan &amp; Tas Inventaris</h3>
+            <button class="btn-close" onclick="window.gameApp.closeInventory()">✕</button>
+          </div>
+
+          <div class="inv-columns">
+            <div class="inv-left-stats">
+              <h4>Karakter Status</h4>
+              <div class="stat-line"><span>Level:</span> <strong id="inv-stat-level">1</strong></div>
+              <div class="stat-line"><span>HP:</span> <strong id="inv-stat-hp">100/100</strong></div>
+              <div class="stat-line"><span>MP:</span> <strong id="inv-stat-mp">40/40</strong></div>
+              <div class="stat-line"><span>Attack (ATK):</span> <strong id="inv-stat-atk">14</strong></div>
+              <div class="stat-line"><span>Defense (DEF):</span> <strong id="inv-stat-def">8</strong></div>
+              <div class="stat-line"><span>Koin Emas:</span> <strong id="inv-stat-gold" class="gold-text">50</strong></div>
+
+              <h4 style="margin-top: 14px;">Zirah Terpasang</h4>
+              <div class="eq-slot"><span>🗡️ Senjata:</span> <strong id="eq-weapon-name">Pedang Karat</strong></div>
+              <div class="eq-slot"><span>🛡️ Zirah:</span> <strong id="eq-armor-name">Tunik Kain</strong></div>
+              <div class="eq-slot"><span>💍 Relik:</span> <strong id="eq-relic-name">Tidak Ada</strong></div>
+            </div>
+
+            <div class="inv-right-items">
+              <h4>Kantong Barang</h4>
+              <div id="inv-items-list" class="inv-items-list">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-outline" onclick="window.gameApp.closeInventory()">Tutup Tas (Esc)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quest Log Modal -->
+      <div id="quest-modal" class="game-modal hidden">
+        <div class="modal-box quest-box">
+          <div class="modal-header">
+            <h3>📜 Buku Catatan Misi Kerajaan</h3>
+            <button class="btn-close" onclick="window.gameApp.closeQuests()">✕</button>
+          </div>
+          <div id="quest-list" class="quest-list">
+            <!-- Dynamically populated -->
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-outline" onclick="window.gameApp.closeQuests()">Tutup Catatan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fishing Minigame Modal -->
+      <div id="fishing-modal" class="game-modal hidden">
+        <div class="modal-box fishing-box">
+          <div class="modal-header">
+            <h3>🎣 Memancing di Danau Eldoria</h3>
+          </div>
+          <p class="fishing-hint">Tunggu jarum pancing sejajar dengan zona target hijau, lalu klik Tarik!</p>
+          <div class="fishing-track-container">
+            <div id="fishing-target-zone" class="fishing-target"></div>
+            <div id="fishing-bar-slider" class="fishing-slider"></div>
+          </div>
+          <div class="fishing-actions">
+            <button class="btn btn-primary btn-large" onclick="window.gameApp.hookFish()">🎣 TARIK KAIL SEKARANG!</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Save & Load Modal -->
+      <div id="save-modal" class="game-modal hidden">
+        <div class="modal-box save-box">
+          <div class="modal-header">
+            <h3>💾 Simpan &amp; Muat Progres Game</h3>
+            <button class="btn-close" onclick="document.getElementById('save-modal').classList.add('hidden')">✕</button>
+          </div>
+
+          <div class="save-slots-grid">
+            <div class="save-slot-card">
+              <h4>Slot Penyimpanan 1</h4>
+              <p>Simpanan utama petualangan</p>
+              <div class="slot-actions">
+                <button class="btn btn-sm btn-primary" onclick="window.gameApp.saveGame(1)">Simpan Slot 1</button>
+                <button class="btn btn-sm btn-outline" onclick="window.gameApp.loadGame(1)">Muat Slot 1</button>
+              </div>
+            </div>
+
+            <div class="save-slot-card">
+              <h4>Slot Penyimpanan 2</h4>
+              <p>Slot alternatif eksplorasi</p>
+              <div class="slot-actions">
+                <button class="btn btn-sm btn-primary" onclick="window.gameApp.saveGame(2)">Simpan Slot 2</button>
+                <button class="btn btn-sm btn-outline" onclick="window.gameApp.loadGame(2)">Muat Slot 2</button>
+              </div>
+            </div>
+
+            <div class="save-slot-card">
+              <h4>Slot Penyimpanan 3</h4>
+              <p>Slot sebelum pertarungan bos</p>
+              <div class="slot-actions">
+                <button class="btn btn-sm btn-primary" onclick="window.gameApp.saveGame(3)">Simpan Slot 3</button>
+                <button class="btn btn-sm btn-outline" onclick="window.gameApp.loadGame(3)">Muat Slot 3</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="export-import-box">
+            <h4>Ekspor / Impor Berkas Save (JSON)</h4>
+            <div class="slot-actions">
+              <button class="btn btn-outline" onclick="window.gameApp.exportSaveFile()">⬇️ Unduh File Save (.json)</button>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-outline" onclick="document.getElementById('save-modal').classList.add('hidden')">Tutup</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auth & Demo Account Modal (Requirement 03) -->
+      <div id="auth-modal" class="game-modal hidden">
+        <div class="modal-box auth-box">
+          <div class="modal-header">
+            <h3>🔑 Akun Penguji &amp; Autentikasi Siswa</h3>
+            <button class="btn-close" onclick="document.getElementById('auth-modal').classList.add('hidden')">✕</button>
+          </div>
+
+          <div class="demo-account-callout">
+            <div class="callout-badge">KREDENSIAL RESMI PENGUJI (SYARAT 03)</div>
+            <p>Untuk guru &amp; tim penguji, gunakan akun demo yang sudah disiapkan:</p>
+            <div class="credentials-card">
+              <div><strong>Username :</strong> <code>demo_hero</code></div>
+              <div><strong>Password :</strong> <code>quest2026</code></div>
+            </div>
+            <button type="button" class="btn btn-warning btn-sm" onclick="window.gameApp.fillDemoLogin()">
+              ⚡ 1-Klik Isi Kredensial Demo Otomatis
+            </button>
+          </div>
+
+          <div class="auth-form">
+            <div class="form-group">
+              <label for="auth-username">Nama Pahlawan / Username:</label>
+              <input type="text" id="auth-username" value="demo_hero" placeholder="Masukkan username">
+            </div>
+            <div class="form-group">
+              <label for="auth-password">Kata Sandi / Password:</label>
+              <input type="password" id="auth-password" value="quest2026" placeholder="Masukkan password">
+            </div>
+
+            <div class="auth-actions">
+              <button class="btn btn-primary" onclick="window.gameApp.submitAuth()">Masuk &amp; Mulai Main</button>
+              <button class="btn btn-outline" onclick="window.gameApp.startNewGame()">Main Cepat (Guest)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- School Rules & PIN Security Modal (Guidelines) -->
+      <div id="rules-modal" class="game-modal hidden">
+        <div class="modal-box rules-box">
+          <div class="modal-header">
+            <h3>📋 Lembar Spesifikasi &amp; Keamanan PIN</h3>
+            <button class="btn-close" onclick="window.gameApp.closeRules()">✕</button>
+          </div>
+
+          <div class="rules-content">
+            <div class="rule-item">
+              <span class="rule-badge">01</span>
+              <div>
+                <strong>Karya 100% Jadi:</strong>
+                <p>Game ini berjalan penuh di browser via WebGL / HTML5 Canvas dan Web Audio Synthesizer, siap dimainkan seketika tanpa mock-up.</p>
+              </div>
+            </div>
+
+            <div class="rule-item">
+              <span class="rule-badge">02</span>
+              <div>
+                <strong>Tugas Mandiri:</strong>
+                <p>Projek personal orisinil oleh <strong>Nabil Zaenal Assyqin (Nza)</strong>, terhosting di repositori GitHub Pages milik pribadi.</p>
+              </div>
+            </div>
+
+            <div class="rule-item">
+              <span class="rule-badge">03</span>
+              <div>
+                <strong>Akun Demo:</strong>
+                <p>Kredensial uji coba: <code>demo_hero</code> / <code>quest2026</code> (atau gunakan mode Guest tanpa hambatan).</p>
+              </div>
+            </div>
+
+            <div class="rule-item">
+              <span class="rule-badge">04</span>
+              <div>
+                <strong>Anti-Localhost &amp; Jalur A (Live Webview):</strong>
+                <p>Terkoneksi langsung ke URL publik berprotokol HTTPS: <code>https://nzadev.github.io/valoria-rpg/</code>.</p>
+              </div>
+            </div>
+
+            <div class="pin-security-guide">
+              <h4>🔒 Panduan Keamanan PIN 4 Digit Siswa</h4>
+              <ul>
+                <li><strong>Di mana PIN dibuat?</strong> Siswa mengisi 4 angka PIN saat pertama kali mengisi Form Kumpul Karya atau klik tombol "Buat PIN Acak".</li>
+                <li><strong>Fungsi Kunci:</strong> PIN berfungsi mengunci karya agar tidak diubah atau ditimpa oleh siswa lain saat memperbarui link submission.</li>
+                <li><strong>Reset PIN:</strong> Jika siswa lupa PIN, guru penguji dapat menekan tombol "Reset PIN" pada rekap nilai sekolah.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-primary" onclick="window.gameApp.closeRules()">Paham &amp; Lanjutkan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toast Notification Alert -->
+      <div id="game-toast" class="game-toast hidden"></div>
+    </main>
+
+    <!-- Mobile Virtual Gamepad Controls (Auto-detected or touch friendly) -->
+    <div class="touch-controls-container">
+      <div class="dpad-box">
+        <button id="btn-dpad-up" class="dpad-btn dpad-up" aria-label="Atas">▲</button>
+        <button id="btn-dpad-left" class="dpad-btn dpad-left" aria-label="Kiri">◀</button>
+        <button id="btn-dpad-center" class="dpad-center" disabled></button>
+        <button id="btn-dpad-right" class="dpad-btn dpad-right" aria-label="Kanan">▶</button>
+        <button id="btn-dpad-down" class="dpad-btn dpad-down" aria-label="Bawah">▼</button>
+      </div>
+
+      <div class="touch-action-box">
+        <button id="btn-touch-menu" class="action-btn btn-menu" aria-label="Menu">MENU</button>
+        <button id="btn-touch-b" class="action-btn btn-b" aria-label="B / Batal">B</button>
+        <button id="btn-touch-a" class="action-btn btn-a" aria-label="A / Aksi">A</button>
+      </div>
+    </div>
+
+    <!-- Desktop Key Helper Bar -->
+    <footer class="controls-helper">
+      <div class="key-hint"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd> Gerak</div>
+      <div class="key-hint"><kbd>Spasi</kbd> / <kbd>Enter</kbd> / <kbd>Z</kbd> Interaksi / Bicara</div>
+      <div class="key-hint"><kbd>Tab</kbd> / <kbd>I</kbd> Buka Tas Inventaris</div>
+      <div class="key-hint"><kbd>Esc</kbd> / <kbd>X</kbd> Menu / Tutup Modal</div>
+    </footer>
+  </div>
+
+  <!-- Game Scripts Loaded in Order -->
+  <script src="audio.js"></script>
+  <script src="data.js"></script>
+  <script src="engine.js"></script>
+  <script src="battle.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
